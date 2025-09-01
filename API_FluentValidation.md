@@ -3,7 +3,7 @@
 FluentValidation er et populært open-source bibliotek til at håndtere **validering af modeller** i .NET-applikationer.  
 Det giver mere fleksibilitet og bedre struktur end traditionelle Data Annotations.
 
-Se dokumentation her:(https://docs.fluentvalidation.net/en/latest/)[https://docs.fluentvalidation.net/en/latest/]
+Se dokumentation her: (https://docs.fluentvalidation.net/en/latest/)[#https://docs.fluentvalidation.net/en/latest/]
 
 ---
 
