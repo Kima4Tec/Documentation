@@ -87,6 +87,42 @@ RuleFor(x => x.Email)
     .WithMessage("Email kræves for personer over 18 år");
 ```
 
+
+### Regex regler
+Der findes en indbygget regel, der hedder Matches(), hvor du kan angive et regex-mønster.
+**Eksempel:** Kun bogstaver (a–z, A–Z)
+```csharp
+RuleFor(x => x.Name)
+    .Matches("^[a-zA-Z]+$")
+    .WithMessage("Navnet må kun indeholde bogstaver");
+
+```
+
+**Eksempel:** Dansk telefonnummer (8 cifre)
+```csharp
+RuleFor(x => x.Phone)
+    .Matches(@"^\d{8}$")
+    .WithMessage("Telefonnummer skal være på 8 cifre");
+
+```
+
+**Eksempel:** Postnummer i Danmark (1000–9999)
+```csharp
+RuleFor(x => x.ZipCode)
+    .Matches(@"^[1-9][0-9]{3}$")
+    .WithMessage("Ugyldigt dansk postnummer");
+
+```
+
+**Eksempel:** E-mail (ud over .EmailAddress())
+```csharp
+RuleFor(x => x.Email)
+    .Matches(@"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    .WithMessage("Ugyldig emailadresse");
+
+```
+
+
 ### Custom logik
 ```csharp
 RuleFor(x => x.Name)
