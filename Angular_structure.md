@@ -244,3 +244,31 @@ export const PRODUCT_ROUTES: Routes = [
 
 ---
 
+#### Eksempel med Products
+
+**Her er inkluderet:**
+- ProductListPage (side der viser alle produkter)
+
+- ProductDetailPage (side der viser ét produkt via route param)
+
+- ProductCardComponent (genbrugelig komponent)
+
+- ProductService (API-kald)
+
+- product.routes.ts (lazy loaded routing)
+
+**Struktur**
+```bash
+src/app/features/products/
+├── pages/
+│   ├── product-list.page.ts
+│   └── product-detail.page.ts
+│
+├── components/
+│   └── product-card.component.ts
+│
+├── services/
+│   └── product.service.ts
+│
+└── product.routes.ts
+```
