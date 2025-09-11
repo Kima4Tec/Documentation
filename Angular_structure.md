@@ -127,3 +127,25 @@ features/
 
 - Har oftest minimal UI, men styrer datastrømmen.
 
+**Eksempel:**
+```bash
+@Component({
+  selector: 'app-product-list',
+  standalone: true,
+  imports: [CommonModule, ProductCardComponent],
+  template: `
+    <h1>Products</h1>
+    <app-product-card *ngFor="let p of products()" [product]="p"></app-product-card>
+  `
+})
+export class ProductListPage {
+  private productService = inject(ProductService);
+  products = signal<Product[]>([]);
+
+  constructor() {
+    this.productService.getAll().subscribe(res => this.products.set(res));
+  }
+}
+
+```
+
