@@ -117,6 +117,8 @@ features/
     └── product.routes.ts  # Feature routing
 ```
 
+---
+
 ### 1. Pages
 
 - Også kaldet "smart components" eller "container components".
@@ -148,4 +150,37 @@ export class ProductListPage {
 }
 
 ```
+
+---
+
+2. Components
+
+- Små byggeklodser (dumb components).
+
+- Får data via @Input() og sender events tilbage med @Output().
+
+- Har intet ansvar for datahentning.
+
+**Eksempel:**
+```ts
+@Component({
+  selector: 'app-product-card',
+  standalone: true,
+  template: `
+    <div class="card">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.price }} kr</p>
+    </div>
+  `
+})
+export class ProductCardComponent {
+  @Input() product!: Product;
+}
+
+```
+
+
+---
+
+
 
