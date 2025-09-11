@@ -35,6 +35,7 @@ src/
 ├── index.html
 ├── main.ts                  # Bootstrapper app.component
 └── styles.css / scss        # Global styling
+```
 
 
 ## Core
