@@ -272,3 +272,7 @@ src/app/features/products/
 │
 └── product.routes.ts
 ```
+
+
+<img width="752" height="382" alt="image" src="https://github.com/user-attachments/assets/8ef52641-4501-4155-b825-19b4418c46f3" />
+
