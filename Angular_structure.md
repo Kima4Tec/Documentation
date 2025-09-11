@@ -182,5 +182,30 @@ export class ProductCardComponent {
 
 ---
 
+3. Services
 
+- Kun til denne feature → isoleret logik.
+
+- Håndterer API-kald, caching, signaler eller state for products.
+
+**Eksempel:**
+```ts
+@Injectable({ providedIn: 'root' })
+export class ProductService {
+  private http = inject(HttpClient);
+
+  getAll(): Observable<Product[]> {
+    return this.http.get<Product[]>('/api/products');
+  }
+
+  getById(id: number): Observable<Product> {
+    return this.http.get<Product>(`/api/products/${id}`);
+  }
+}
+
+
+```
+
+
+---
 
