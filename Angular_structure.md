@@ -205,7 +205,42 @@ export class ProductService {
 
 
 ```
+---
 
+### 4. Feature routes
+
+- Definerer navigation for denne feature.
+
+- Bruges sammen med lazy loading i root app.routes.ts.
+
+**product.routes.ts**
+```ts
+import { Routes } from '@angular/router';
+import { ProductListPage } from './pages/product-list.page';
+import { ProductDetailPage } from './pages/product-detail.page';
+
+export const PRODUCT_ROUTES: Routes = [
+  { path: '', component: ProductListPage },
+  { path: ':id', component: ProductDetailPage }
+];
+
+```
+
+
+**app.routes.ts**
+```ts
+import { Routes } from '@angular/router';
+import { ProductListPage } from './pages/product-list.page';
+import { ProductDetailPage } from './pages/product-detail.page';
+
+export const PRODUCT_ROUTES: Routes = [
+  { path: '', component: ProductListPage },
+  { path: ':id', component: ProductDetailPage }
+];
+
+
+
+```
 
 ---
 
