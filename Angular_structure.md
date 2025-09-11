@@ -99,6 +99,8 @@ Man organiserer dem typisk domæne-for-domaene → fx products/, users/, orders/
 
 
 ### Typisk struktur for en feature
+
+```plaintext
 features/
 └── products/
     ├── pages/         # Store sider/containers (routable components)
@@ -113,7 +115,7 @@ features/
     │   └── product.service.ts
     │
     └── product.routes.ts  # Feature routing
-
+```
 
 ### 1. Pages
 
