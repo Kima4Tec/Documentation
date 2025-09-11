@@ -128,7 +128,7 @@ features/
 - Har oftest minimal UI, men styrer datastrømmen.
 
 **Eksempel:**
-```bash
+```ts
 @Component({
   selector: 'app-product-list',
   standalone: true,
