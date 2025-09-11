@@ -153,7 +153,7 @@ export class ProductListPage {
 
 ---
 
-2. Components
+### 2. Components
 
 - Små byggeklodser (dumb components).
 
@@ -182,7 +182,7 @@ export class ProductCardComponent {
 
 ---
 
-3. Services
+### 3. Services
 
 - Kun til denne feature → isoleret logik.
 
