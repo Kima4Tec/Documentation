@@ -89,10 +89,39 @@ Eksempler:
 
 Disse bruges direkte i app.routes.ts eller feature routes.
 
+---
+
+## Features
+features/ indeholder alt det, der udgør forretningslogikken i din app.
+Hvor core/ er fundamentet (globale ting) og shared/ er genbrug, så er features/ de egentlige "moduler" (selvom vi ikke bruger Angular-moduler længere, men standalone-komponenter).
+
+Man organiserer dem typisk domæne-for-domaene → fx products/, users/, orders/.
 
 
+### Typisk struktur for en feature
+features/
+└── products/
+    ├── pages/         # Store sider/containers (routable components)
+    │   ├── product-list.page.ts
+    │   └── product-detail.page.ts
+    │
+    ├── components/    # Mindre, genbrugelige UI-stykker
+    │   ├── product-card.component.ts
+    │   └── product-form.component.ts
+    │
+    ├── services/      # Feature-specifik logik
+    │   └── product.service.ts
+    │
+    └── product.routes.ts  # Feature routing
 
 
+### 1. Pages
 
+- Også kaldet "smart components" eller "container components".
 
+- Routable → man navigerer til dem via Angular Router.
+
+- Henter data (fx via product.service.ts) og sender det videre til components.
+
+- Har oftest minimal UI, men styrer datastrømmen.
 
