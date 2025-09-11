@@ -51,13 +51,13 @@ Typisk indeholder den:
 Globale services, som kan bruges på tværs af features.
 Eksempler:
 
-AuthService (login, tokenhåndtering, brugerinfo)
+- AuthService (login, tokenhåndtering, brugerinfo)
 
-ApiService (fælles API-kald)
+- ApiService (fælles API-kald)
 
-StorageService (localStorage/sessionStorage)
+- StorageService (localStorage/sessionStorage)
 
-LoggerService
+- LoggerService
 
 Disse services er normalt providedIn: 'root', så de ikke skal importeres manuelt.
 
@@ -68,11 +68,11 @@ Disse services er normalt providedIn: 'root', så de ikke skal importeres manuel
 HTTP-interceptors, der fanger alle kald via HttpClient.
 Eksempler:
 
-AuthInterceptor (tilføjer JWT-token til headers)
+- AuthInterceptor (tilføjer JWT-token til headers)
 
-ErrorInterceptor (global fejlbehandling)
+- ErrorInterceptor (global fejlbehandling)
 
-LoadingInterceptor (viser spinner ved API-kald)
+- LoadingInterceptor (viser spinner ved API-kald)
 
 Lægges i core/interceptors/ og registreres i core.config.ts med provideHttpClient.
 
@@ -83,9 +83,9 @@ Lægges i core/interceptors/ og registreres i core.config.ts med provideHttpClie
 Angular Router guards, som styrer adgang til routes.
 Eksempler:
 
-auth.guard.ts → tjekker om brugeren er logget ind
+- auth.guard.ts → tjekker om brugeren er logget ind
 
-admin.guard.ts → tjekker om brugeren har admin-rolle
+- admin.guard.ts → tjekker om brugeren har admin-rolle
 
 Disse bruges direkte i app.routes.ts eller feature routes.
 
