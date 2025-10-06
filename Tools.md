@@ -13,6 +13,7 @@
 				- Bemærkning: Kan opgraderes til Pro for mere kapacitet
  
 Sådan bruger du det:
+
 	1.	Opret projekt på Supabase.io
 	2.	Opret tabel, fx contents med kolonner id, section, title, body.
 	3.	Installer Supabase client
