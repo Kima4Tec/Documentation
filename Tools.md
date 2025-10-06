@@ -1,7 +1,7 @@
 # Tools
 
 ## TredjepartsDatabase
-- supabase: 
+- **supabase:** 
     - gratis 
 	- postgress 
 	- SQL-database (PostgreSQL) med real-time features via websockets. 
@@ -18,4 +18,4 @@ Sådan bruger du det:
 	2.	Opret tabel, fx contents med kolonner id, section, title, body.
 	3.	Installer Supabase client
 
-- firebase
+- **firebase**
