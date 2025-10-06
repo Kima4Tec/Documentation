@@ -4,7 +4,7 @@
 - supabase: 
     - gratis
     - postgress
-    - SQL-database (PostgreSQL) med real-time features via websockets. 
+    - SQL-database (PostgreSQL) med real-time features via websockets.  
 				- Kan hoste filer, brugere, og functions. 
     - 500 MB database-lagring 
 				- 1 GB fil-lagring 
