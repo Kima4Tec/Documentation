@@ -18,4 +18,5 @@ Sådan bruger du det:
 	2.	Opret tabel, fx contents med kolonner id, section, title, body.
 	3.	Installer Supabase client
 
-- **firebase**
+- **firebase:**
+    - Googles
