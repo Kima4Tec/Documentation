@@ -1,5 +1,6 @@
 # Priser
-	```
+
+```
 {
   "firstName": "John",
   "lastName": "Smith",
