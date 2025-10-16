@@ -8,6 +8,13 @@
 ## Old routes
 
 ## New Routes
+```bash
+  {
+    path: 'admin/datacontrol',
+    loadComponent: () =>
+      import('./pages/data-control-page/data-control-page').then(m => m.DataControlPage),
+  },
+```
 
 ## Local routers med referencer
 Her er der oprettet routes i **admin.routes.ts**, og der er lavet refs til denne i **app.routes.ts**
