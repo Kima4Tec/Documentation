@@ -7,18 +7,18 @@
 # AppRoutes
 ## Old routes (klassisk)
 
-🔹 Kendetegn:
-    - Du importerer alle komponenter øverst i filen.
-    - Hver route har en component, der bliver hentet med det samme, når appen starter.
-    - Det betyder: jo flere komponenter du importerer, jo større bliver din initiale bundle size (det, browseren skal hente ved opstart).
+🔹 Kendetegn:   
+    - Du importerer alle komponenter øverst i filen.   
+    - Hver route har en component, der bliver hentet med det samme, når appen starter.   
+    - Det betyder: jo flere komponenter du importerer, jo større bliver din initiale bundle size (det, browseren skal hente ved opstart).   
 
-🔹 Fordele:
-    - Simpelt og direkte.
-    - Passer godt til små projekter eller hvis alt indhold skal være tilgængeligt med det samme.
+🔹 Fordele:   
+    - Simpelt og direkte.   
+    - Passer godt til små projekter eller hvis alt indhold skal være tilgængeligt med det samme.   
 
-🔹 Ulemper:
-    - Dårlig performance ved mange sider, fordi alt bliver indlæst upfront.
-    - Ikke optimalt til større apps med mange moduler/sider.
+🔹 Ulemper:   
+    - Dårlig performance ved mange sider, fordi alt bliver indlæst upfront.   
+    - Ikke optimalt til større apps med mange moduler/sider.   
 
 ```bash
 import { Routes } from '@angular/router';
