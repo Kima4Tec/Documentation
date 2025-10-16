@@ -31,26 +31,27 @@ export const routes: Routes = [
 
 ## New Routes
 ```bash
-  {
+import { Routes } from '@angular/router';
+
 export const routes: Routes = [
+  { path: '', redirectTo: '/author', pathMatch: 'full' },
   {
-    path: 'datacontrol',
-    loadComponent: () =>
-      import('./pages/data-control-page/data-control-page').then(m => m.DataControlPage),
+    path: 'author',
+    loadComponent: () => import('./pages/author').then((m) => m.AuthorPage),
   },
   {
-    path: 'filmcontrol',
-    loadComponent: () =>
-      import('./pages/film-control-page/film-control-page').then(m => m.FilmControlPage),
+    path: 'artist',
+    loadComponent: () => import('./pages/artist').then((m) => m.ArtistPage),
   },
   {
-    path: 'usercontrol',
-    loadComponent: () =>
-      import('./pages/user-control-page/user-control-page').then(m => m.UserControlPage),
+    path: 'cover',
+    loadComponent: () => import('./pages/cover').then((m) => m.CoverPage),
+  },
+  {
+    path: 'book',
+    loadComponent: () => import('./pages/book').then((m) => m.BookPage),
   },
 ];
-
-  },
 ```
 
 ## Local routers med referencer
