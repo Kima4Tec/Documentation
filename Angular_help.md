@@ -51,15 +51,15 @@ export const routes: Routes = [
 
 - **Fordele:*
 
-✅ Hurtigere initial load – kun nødvendige filer hentes.
-✅ Mindre bundle size → bedre performance.
-✅ Meget nemt at opsætte lazy loading uden ekstra moduler.
-✅ Matcher den moderne Angular-arkitektur (Angular 17+ bruger dette som standard).
+✅ Hurtigere initial load – kun nødvendige filer hentes.  
+✅ Mindre bundle size → bedre performance.  
+✅ Meget nemt at opsætte lazy loading uden ekstra moduler.  
+✅ Matcher den moderne Angular-arkitektur (Angular 17+ bruger dette som standard).  
 
 - **Ulemper:**
 
-⚠️ Kræver at dine komponenter er standalone.
-⚠️ Kan være lidt sværere at teste i ældre setup med moduler.
+⚠️ Kræver at dine komponenter er standalone.  
+⚠️ Kan være lidt sværere at teste i ældre setup med moduler.  
 
 ```bash
 import { Routes } from '@angular/router';
