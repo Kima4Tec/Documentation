@@ -43,6 +43,24 @@ export const routes: Routes = [
 ```
 
 ## New Routes (lazy loading af standalone komponenter)
+- **Kendetegn:**
+    - Du importerer ikke komponenterne direkte.
+    - I stedet bruger du loadComponent, som dynamisk loader komponenten kun når brugeren navigerer til den route.
+    - Dette er lazy loading – altså at Angular først henter koden for siden, når den faktisk skal bruges.
+    - Denne metode kræver, at dine komponenter er standalone (standalone: true).
+
+- **Fordele:*
+
+✅ Hurtigere initial load – kun nødvendige filer hentes.
+✅ Mindre bundle size → bedre performance.
+✅ Meget nemt at opsætte lazy loading uden ekstra moduler.
+✅ Matcher den moderne Angular-arkitektur (Angular 17+ bruger dette som standard).
+
+- **Ulemper:**
+
+⚠️ Kræver at dine komponenter er standalone.
+⚠️ Kan være lidt sværere at teste i ældre setup med moduler.
+
 ```bash
 import { Routes } from '@angular/router';
 
