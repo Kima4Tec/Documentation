@@ -61,6 +61,7 @@ export const routes: Routes = [
 ⚠️ Kræver at dine komponenter er standalone.  
 ⚠️ Kan være lidt sværere at teste i ældre setup med moduler.  
 
+
 ```bash
 import { Routes } from '@angular/router';
 
