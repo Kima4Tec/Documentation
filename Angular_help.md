@@ -42,7 +42,7 @@ export const routes: Routes = [
 ];
 ```
 
-## New Routes
+## New Routes (lazy loading af standalone komponenter)
 ```bash
 import { Routes } from '@angular/router';
 
