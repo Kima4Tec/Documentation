@@ -98,7 +98,7 @@ NgRx-funktion der opretter en action creator.
 
 
 
-
+## Effects
 ```angular
 export const addUserEffect = createEffect(
   (actions$ = inject(Actions), api = inject(UserApiService)) => {
