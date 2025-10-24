@@ -112,6 +112,12 @@ Mange moderne sider (også større danske sites) bruger denne kombination:
 
 ## 3. Bare statisk
 
-Hvis du kun har HTML/JS uden behov for database, kan du gemme alt i JSON-filer og hente med fetch fra GitHub Pages.
+Hvis du kun har HTML/JS uden behov for database, kan du gemme alt i JSON-filer og hente med fetch fra GitHub Pages. Man kan sagtens bruge SVG-billeder og gemme dem i JSON
 
+
+| Platform               | Popularitet                         | Bedst til                                    |
+| ---------------------- | ----------------------------------- | -------------------------------------------- |
+| **Firebase Firestore** | Meget populær, stort community      | Real-time apps, chat, små/medium projekter   |
+| **Supabase**           | Stadig voksende, open-source        | SQL-baserede apps, relationer, fleksibilitet |
+| **Airtable**           | Mest populær til content management | CMS-lignende projekter med lav kompleksitet  |
 
