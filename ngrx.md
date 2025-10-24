@@ -92,9 +92,9 @@ createAction('[Users] Add User', ...)
 
 
 
-NgRx
-Action → beskriver hvad der skal ske
+## NgRx
+- Action → beskriver hvad der skal ske
 
-Reducer → bestemmer hvordan staten ændres
+- Reducer → bestemmer hvordan staten ændres
 
-Store → holder på den globale state
+- Store → holder på den globale state
