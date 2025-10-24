@@ -81,10 +81,10 @@ createAction('[Users] Add User', ...)
 }
 ```
 
-Trin	| Hvad sker der				|	Action	|	Hvem står for det	|	Hvem står for det
-1️⃣	| Du fortæller systemet, at du vil oprette en bruger	|	addUser		| Component
-- 2️⃣	Effect fanger addUser, kalder API’et og venter på svar	(ingen ny action endnu)	Effect
-- 3️⃣	Når API’et svarer (enten succes eller fejl), sender effect en ny action:	addUserSuccess eller addUserFailure
+Trin	| 	Hvad sker der											|	Action					|	Hvem står for det	|	Hvem står for det
+1️⃣		| 	Du fortæller systemet, at du vil oprette en bruger		|	addUser					| 	Component 			|
+- 2️⃣	|	Effect fanger addUser, kalder API’et og venter på svar	|	(ingen ny action endnu)	|	Effect 				|
+- 3️⃣	|	Når API’et svarer (enten succes eller fejl), sender effect en ny action: |	addUserSuccess eller addUserFailure	| Effect
 
 
 
