@@ -112,7 +112,7 @@ Mange moderne sider (også større danske sites) bruger denne kombination:
 
 ## 3. Bare statisk
 
-Hvis du kun har HTML/JS uden behov for database, kan du gemme alt i JSON-filer og hente med fetch fra GitHub Pages. Man kan sagtens bruge SVG-billeder og gemme dem i JSON
+Hvis du kun har HTML/JS uden behov for database, kan du gemme alt i JSON-filer og hente med fetch fra GitHub Pages. Man kan sagtens bruge SVG-billeder og gemme dem i JSON.
 
 
 | Platform               | Popularitet                         | Bedst til                                    |
