@@ -73,17 +73,18 @@ createAction('[Users] Add User', ...)
 	som bruges til logging/DevTools og til at skelne actions.	
 	
 
-Dette er, hvad der returneres:
+**Dette er, hvad der returneres:**
+```
 {
   type: '[User] Add User',
   user: { firstName: 'Morten', lastName: 'Hansen', loginName: 'mh', role: 'Admin' }
 }
-
+```
 
 Trin	Hvad sker der	Action	Hvem står for det
-1️⃣	Du fortæller systemet, at du vil oprette en bruger	addUser	Component
-2️⃣	Effect fanger addUser, kalder API’et og venter på svar	(ingen ny action endnu)	Effect
-3️⃣	Når API’et svarer (enten succes eller fejl), sender effect en ny action:	addUserSuccess eller addUserFailure
+- 1️⃣	Du fortæller systemet, at du vil oprette en bruger	addUser	Component
+- 2️⃣	Effect fanger addUser, kalder API’et og venter på svar	(ingen ny action endnu)	Effect
+- 3️⃣	Når API’et svarer (enten succes eller fejl), sender effect en ny action:	addUserSuccess eller addUserFailure
 
 
 
