@@ -1,5 +1,13 @@
 # GEMME BRUGER FORLØB i NgRx
 
+
+## NgRx
+- Action → beskriver hvad der skal ske
+
+- Reducer → bestemmer hvordan staten ændres
+
+- Store → holder på den globale state
+
 ### Parent side: 
 **USER-CONTROL-PAGE:** 
 - (click)="openNewUserModal()" => this.showNewUserModal = true; -->
@@ -89,9 +97,30 @@ NgRx-funktion der opretter en action creator.
 | 3️⃣		|	Når API’et svarer (enten succes eller fejl), sender effect en ny action:	|	addUserSuccess eller addUserFailure	| 	Effect				|
 
 
-## NgRx
-- Action → beskriver hvad der skal ske
 
-- Reducer → bestemmer hvordan staten ændres
 
-- Store → holder på den globale state
+```angular
+export const addUserEffect = createEffect(
+  (actions$ = inject(Actions), api = inject(UserApiService)) => {
+    return actions$.pipe(
+      ofType(UserActions.addUser),
+      mergeMap(({ user }: { user: CreateUserDto }) =>
+        api.addUser(user).pipe(
+          map((createdUser: User) =>
+            UserActions.addUserSuccess({ user: createdUser })
+          ),
+          catchError(error =>
+            of(UserActions.addUserFailure({ error: error.message }))
+          )
+        )
+      )
+    );
+  },
+  { functional: true }
+);
+
+```
+
+
+
+
