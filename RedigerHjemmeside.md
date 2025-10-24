@@ -1,4 +1,4 @@
-#🔹 1. Headless CMS (mest moderne og fleksibel løsning)
+# 1. Headless CMS (mest moderne og fleksibel løsning)
 
 **Et Headless CMS** lader dig have et backend-system, hvor du (eller kunden) kan redigere tekst, billeder, sektioner osv.
 Frontend (Angular, React, Vue, eller ren HTML/JS) henter data via API.
@@ -37,7 +37,7 @@ Når bruger opdaterer tekst i CMS → API’et opdateres → hjemmesiden viser �
 ---
 
 
-#🔹 2. Database + Adminpanel (bygget selv i .NET eller Node.js)
+# 2. Database + Adminpanel (bygget selv i .NET eller Node.js)
 
 Du kan lave dit eget mini-CMS:
 
@@ -66,7 +66,7 @@ Frontend kalder f.eks. GET /api/content/about for at vise teksten — og PUT /ap
 
 .
 
-#  4. Brug et klassisk CMS
+# 3. Brug et klassisk CMS
 
 Hvis du ikke vil bygge alt selv:
 
