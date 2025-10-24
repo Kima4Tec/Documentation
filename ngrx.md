@@ -19,7 +19,7 @@ export const addUser = createAction('[Users] Add User', props<{ user: CreateUser
 
 
 --------------------------------------------------------------------------------
--->	this.store.dispatch(UserActions.addUser({ user: this.newUser }));    <--
+	this.store.dispatch(UserActions.addUser({ user: this.newUser }));  
 --------------------------------------------------------------------------------
 
 this.store 
@@ -51,7 +51,7 @@ Kaldet UserActions.addUser({ user: this.newUser }), skaber NgRx en action-instan
 
 
 --------------------------------------------------------------------------------------------------
---> export const addUser = createAction('[Users] Add User', props<{ user: CreateUserDto }>()); <--
+ export const addUser = createAction('[Users] Add User', props<{ user: CreateUserDto }>()); 
 --------------------------------------------------------------------------------------------------
 
 createAction()				Opretter en ny NgRx action
