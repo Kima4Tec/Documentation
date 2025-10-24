@@ -35,6 +35,8 @@ Kræver hosting både af CMS og frontend.
 
    Angular → henter data fra CMS API → viser tekst/billeder.
 Når bruger opdaterer tekst i CMS → API’et opdateres → hjemmesiden viser ændringen næste gang.
+
+
 ---
 
 
@@ -63,6 +65,7 @@ Du kan lave dit eget mini-CMS:
 #### 👉 Eksempel:
 Et Content-endpoint med felter som section, title, body, imageUrl.
 Frontend kalder f.eks. GET /api/content/about for at vise teksten — og PUT /api/content/about for at ændre den.
+
 ---
 
 .
@@ -79,3 +82,4 @@ Hvis du ikke vil bygge alt selv:
 
 De giver en “færdig” redigeringsoplevelse med WYSIWYG, men du mister noget fleksibilitet, især hvis du allerede koder i Angular.
 
+---
