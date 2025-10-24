@@ -100,6 +100,7 @@ NgRx-funktion der opretter en action creator.
 
 ---
 ## Effects
+
 ```angular
 export const addUserEffect = createEffect(
   (actions$ = inject(Actions), api = inject(UserApiService)) => {
@@ -121,7 +122,73 @@ export const addUserEffect = createEffect(
 );
 
 ```
+#### Et Effect i NgRx er:
 
+- En observer, der lytter på Actions-streamen.
+- Kan udføre side-effekter (API-kald, logning, navigation osv.).
+- Kan dispatch’e nye actions baseret på resultatet (success/failure).
 
+**createEffect** bruges til at definere effekten.
 
+```functional: true```
 
+- Dette gør det til en funktionel effect i stedet for en class-baseret.
+- Du behøver ikke en effect-klasse med constructor(private actions$: Actions).
+- I stedet bruges inject() direkte inde i effekten.
+
+```inject(Actions) og inject(UserApiService)```
+- inject() er Angular 17+ måde at hente services uden constructor.
+
+```actions$.pipe(ofType(UserActions.addUser))```
+- actions$ er alle actions i appen.
+- ofType(UserActions.addUser) filtrerer kun de actions, der matcher addUser.
+- Når du dispatch’er addUser fra komponenten, vil denne effekt “fange” den.
+- pipe() er en RxJS-metode, der bruges til at kæde “operators” sammen på en Observable. Den tager input-streamen (actions$) og sender den gennem én eller flere operators, som fx: map, filter, mergeMap, catchError osv.
+
+```mergeMap(({ user }: { user: CreateUserDto }) => ...)```
+- Når en addUser action kommer ind, destructurerer vi payloaden { user }.
+- TypeScript: user: CreateUserDto.
+- mergeMap bruges fordi API-kaldet er asynkront (returnerer Observable<User>).
+- mergeMap gør det muligt at håndtere flere addUser-actions samtidigt, hvis brugeren klikker flere gange hurtigt.
+
+```api.addUser(user).pipe(...)```
+- Kalder backend via service: UserApiService.addUser(user)
+- Returnerer en Observable med den nyoprettede bruger (User).
+
+```map((createdUser: User) => UserActions.addUserSuccess({ user: createdUser }))```
+- Når API’et returnerer succes, laver vi en ny action: addUserSuccess.
+- Tuborg-klammerne { user: createdUser } er nødvendige, fordi addUserSuccess er defineret med props<{ user: User }>().
+- Denne action dispatcher NgRx automatisk videre, fordi createEffect gør det som default.
+
+```catchError(error => of(UserActions.addUserFailure({ error: error.message })))```
+- Hvis API’et fejler (fx HTTP 400/500), fanges fejlen.
+- Vi returnerer en observable af en action med of(), så streamen ikke bryder.
+- addUserFailure har payload { error: string }.
+
+Forløb i pipe
+```bash
+ [Component] dispatch(addUser({ user: ... }))
+        │
+        ▼
+[Effect] ofType(addUser) filtrerer actionen
+        │
+        ▼
+mergeMap → kalder api.addUser(user)
+        │
+   ┌──────────────┐
+   │ Success      │
+   ▼              │
+dispatch(addUserSuccess({ user: createdUser }))
+   │
+Reducer opdaterer state.users
+   │
+   ▼
+   UI viser ny bruger
+   │
+   └─────────────┐
+   │ Failure      │
+   ▼
+dispatch(addUserFailure({ error }))
+Reducer opdaterer state.errorMessage
+
+ ```
