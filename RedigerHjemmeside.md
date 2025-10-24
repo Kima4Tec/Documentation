@@ -32,7 +32,8 @@ Du skal sætte et API op (Node.js, Strapi, etc.).
 Kræver hosting både af CMS og frontend.
 
 #### 👉 Typisk flow:
-Angular → henter data fra CMS API → viser tekst/billeder.
+
+   Angular → henter data fra CMS API → viser tekst/billeder.
 Når bruger opdaterer tekst i CMS → API’et opdateres → hjemmesiden viser ændringen næste gang.
 ---
 
