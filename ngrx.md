@@ -63,11 +63,11 @@ Kaldet UserActions.addUser({ user: this.newUser }), skaber NgRx en action-instan
 
 
 
-export const addUser
+## export const addUser
 --------------------
 — eksport af en action creator (en funktion) med navnet addUser
 
-createAction('[Users] Add User', ...)
+## createAction('[Users] Add User', ...)
 --------------------------------------
 - NgRx-funktion der opretter en action creator. 
 	Den første parameter er en type-string ('[Users] Add User') 
@@ -87,10 +87,6 @@ createAction('[Users] Add User', ...)
 | 1️⃣		| 	Du fortæller systemet, at du vil oprette en bruger							|	addUser								| 	Component 			|
 | 2️⃣		|	Effect fanger addUser, kalder API’et og venter på svar					 	|	(ingen ny action endnu)				|	Effect 				|
 | 3️⃣		|	Når API’et svarer (enten succes eller fejl), sender effect en ny action:	|	addUserSuccess eller addUserFailure	| 	Effect				|
-
-
-
-
 
 
 ## NgRx
