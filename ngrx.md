@@ -9,11 +9,13 @@
 - (ngSubmit)="onSaveUser() ==>   onSaveUser() {
 	this.errorMessage = null; 
 	this.store.dispatch(UserActions.addUser({ user: this.newUser }));
-	  }	-->
-
+	  }
+  
+Den action der skal håndteres er defineret i actions.ts
 UserActions
-	export const addUser = createAction('[Users] Add User', props<{ user: CreateUserDto }>());
-
+```
+export const addUser = createAction('[Users] Add User', props<{ user: CreateUserDto }>());
+```
 
 
 --------------------------------------------------------------------------------
