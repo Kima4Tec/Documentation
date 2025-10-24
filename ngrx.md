@@ -11,8 +11,8 @@
 	this.store.dispatch(UserActions.addUser({ user: this.newUser }));
 	  }
   
-Den action der skal håndteres er defineret i actions.ts
-UserActions
+Den action der skal håndteres er defineret i UserActions
+
 ```
 export const addUser = createAction('[Users] Add User', props<{ user: CreateUserDto }>());
 ```
