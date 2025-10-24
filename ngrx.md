@@ -54,11 +54,12 @@ Kaldet UserActions.addUser({ user: this.newUser }), skaber NgRx en action-instan
  export const addUser = createAction('[Users] Add User', props<{ user: CreateUserDto }>()); 
 --------------------------------------------------------------------------------------------------
 
-createAction()				Opretter en ny NgRx action
-'[Users] Add User'			Etiket, der beskriver hvad actionen gør
-props<{ user: CreateUserDto }>()	Definerer payloadens type
-{ user: this.newUser }			Objekt du sender, som matcher props-definitionen
-Tuborg-klammer {}			Er nødvendige, fordi du sender et objekt med property user
+ |	createAction()						|	Opretter en ny NgRx action 									|
+ |	---------------						|	--------------------------									|
+ |	'[Users] Add User'					|	Etiket, der beskriver hvad actionen gør						|
+ |	props<{ user: CreateUserDto }>()	|	Definerer payloadens type									|
+ |	{ user: this.newUser }				| 	Objekt du sender, som matcher props-definitionen			|
+ |	Tuborg-klammer {}					|	Er nødvendige, fordi du sender et objekt med property user	|
 
 
 
