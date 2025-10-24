@@ -65,11 +65,11 @@ Kaldet UserActions.addUser({ user: this.newUser }), skaber NgRx en action-instan
 
 ## export const addUser
 --------------------
-— eksport af en action creator (en funktion) med navnet addUser
+eksport af en action creator (en funktion) med navnet addUser
 
 ## createAction('[Users] Add User', ...)
 --------------------------------------
-- NgRx-funktion der opretter en action creator. 
+NgRx-funktion der opretter en action creator. 
 	Den første parameter er en type-string ('[Users] Add User') 
 	som bruges til logging/DevTools og til at skelne actions.	
 	
