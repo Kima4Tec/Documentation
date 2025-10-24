@@ -83,3 +83,35 @@ Hvis du ikke vil bygge alt selv:
 De giver en “færdig” redigeringsoplevelse med WYSIWYG, men du mister noget fleksibilitet, især hvis du allerede koder i Angular.
 
 ---
+
+# 4. Hybrid løsning: Angular + Headless CMS
+
+Mange moderne sider (også større danske sites) bruger denne kombination:
+
+- Angular frontend for hastighed og designkontrol.
+
+- Strapi eller Sanity som headless CMS for let redigering.
+
+---
+
+
+# 5 Løsninger hvis du vil bruge databaser med GitHub Pages
+
+## 1. Ekstern API   
+- Host API et andet sted (f.eks. Simply.com, Render, Azure)
+
+- API’en håndterer MySQL / SQLite
+
+- GitHub Pages frontend kalder API via HTTP (GET, POST etc.)
+
+## 2. Serverless / cloud-løsning
+
+- Firebase Firestore, Supabase, eller Airtable
+
+- Kan bruges direkte fra frontend JS på GitHub Pages
+
+## 3. Bare statisk
+
+Hvis du kun har HTML/JS uden behov for database, kan du gemme alt i JSON-filer og hente med fetch fra GitHub Pages.
+
+
