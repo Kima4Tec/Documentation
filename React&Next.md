@@ -52,10 +52,13 @@ Brug denne for lokal kørsel i modsætning til server.
 
 ---
 
+## Komponenten
 ```
 const [data, setData] = useState<WeatherForecast[]>([]);
 
 ```
+Vi bruger array destructuring fra JavaScript. Med [data, setData] giver vi navnene til de to elementer.
+
 
 1️useState
 useState er en React hook, der bruges til at gemme lokal state i en komponent.   
