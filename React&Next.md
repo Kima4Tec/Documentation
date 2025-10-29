@@ -28,6 +28,18 @@ C:\Users\km\source\repos\first-react>npm run dev
  GET / 200 in 2.0s (compile: 1891ms, render: 145ms)
 ```
 
-
 Tailwind bliver installeret som standard!
 
+```bash
+app/
+├─ page.tsx         ← Hovedsiden, tilgås via "/"
+├─ about/
+│  └─ page.tsx     ← Din About-side
+
+
+export default function About() {
+    return (<div className="text-4xl">Om mig</div>)
+}
+
+URL: http://localhost:3000/about
+``` 
