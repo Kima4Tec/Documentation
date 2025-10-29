@@ -57,7 +57,7 @@ Brug denne for lokal kørsel i modsætning til server.
 const [data, setData] = useState<WeatherForecast[]>([]);
 
 ```
-Vi bruger array destructuring fra JavaScript. Med [data, setData] giver vi navnene til de to elementer.
+Vi bruger array destructuring fra JavaScript. Med `[data, setData]` giver vi navnene til de to elementer.
 
 
 1️useState
