@@ -3,12 +3,11 @@
 **create app** 
 - ingen store bogstaver
 
-  ```
+```
 npx create-next-app@latest first-react
 cd first-react
 npm run dev
-
-  ```
+```
 
 ved npm run dev, får man besked om, at der er brug for administrator adgang pga node.js og firewall
 
