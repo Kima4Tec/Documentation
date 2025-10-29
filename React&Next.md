@@ -57,7 +57,7 @@ const [data, setData] = useState<WeatherForecast[]>([]);
 
 ```
 
-1️⃣ useState
+1️useState
 useState er en React hook, der bruges til at gemme lokal state i en komponent.   
 **Den returnerer et array med to elementer:**
 - Selve state-værdien (data)
