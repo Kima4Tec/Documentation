@@ -72,3 +72,25 @@ useState er en React hook, der bruges til at gemme lokal state i en komponent.
 | `[]` (i parentes)             | Den **initiale værdi** for state = tomt array                                    |
 | `[data, setData]`             | Array-destructuring: `data` = værdien, `setData` = funktion til at ændre værdien |
 
+
+
+
+
+## Supabase
+### Install
+npm install @supabase/supabase-js
+
+### Opret fil
+Lav en fil lib/supabaseClient.ts:
+```js
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
+
+```
+
+
+
