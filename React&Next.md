@@ -43,4 +43,29 @@ export default function About() {
 }
 
 URL: http://localhost:3000/about
-``` 
+```
+
+Brug denne for lokal kørsel i modsætning til server.
+```
+"use client";
+```
+
+---
+
+```
+const [data, setData] = useState<WeatherForecast[]>([]);
+
+```
+
+1️⃣ useState
+useState er en React hook, der bruges til at gemme lokal state i en komponent.   
+**Den returnerer et array med to elementer:**
+- Selve state-værdien (data)
+- En funktion til at opdatere state (setData)
+
+| Del                           | Forklaring                                                                       |
+| ----------------------------- | -------------------------------------------------------------------------------- |
+| `useState<WeatherForecast[]>` | Siger til TypeScript, at `data` skal være et array af WeatherForecast            |
+| `[]` (i parentes)             | Den **initiale værdi** for state = tomt array                                    |
+| `[data, setData]`             | Array-destructuring: `data` = værdien, `setData` = funktion til at ændre værdien |
+
