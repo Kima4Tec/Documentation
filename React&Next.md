@@ -60,7 +60,7 @@ const [data, setData] = useState<WeatherForecast[]>([]);
 Vi bruger array destructuring fra JavaScript. Med `[data, setData]` giver vi navnene til de to elementer.
 
 
-1️useState
+### useState
 useState er en React hook, der bruges til at gemme lokal state i en komponent.   
 **Den returnerer et array med to elementer:**
 - Selve state-værdien (data)
