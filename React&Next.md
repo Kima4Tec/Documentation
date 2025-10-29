@@ -30,6 +30,7 @@ C:\Users\km\source\repos\first-react>npm run dev
 
 Tailwind bliver installeret som standard!
 
+### Første side og visning af denne
 ```bash
 app/
 ├─ page.tsx         ← Hovedsiden, tilgås via "/"
