@@ -2,17 +2,21 @@
 
 **create app** 
 - ingen store bogstaver
-  ```cmd
+
+  ```
 npx create-next-app@latest first-react
 cd first-react
 npm run dev
+
   ```
 
 ved npm run dev, får man besked om, at der er brug for administrator adgang pga node.js og firewall
 
 **og går man så ind på localhost:3000 ser man en status 200 i cmd:**
-C:\Users\km\source\repos\first-react>npm run dev
+
 ```bash
+C:\Users\km\source\repos\first-react>npm run dev
+
 > first-react@0.1.0 dev
 > next dev
 
