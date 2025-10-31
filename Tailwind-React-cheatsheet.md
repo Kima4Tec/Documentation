@@ -39,3 +39,20 @@ flex-wrap → tillader linjeskift
     <div className="text-black border-black border-2 p-3">Fjerde i flex</div>
 </div>
 ```
+
+## Buttons
+
+```html
+    const [message, setMessage] = React.useState("");
+
+<div className="flex gap-5">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md"
+            onClick={() => setMessage("Button clicked!")}>
+                Click here
+            </button>
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow-md"
+            onClick={() => setMessage("")}>
+                Reset
+            </button>
+            </div>
+```
