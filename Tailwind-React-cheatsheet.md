@@ -64,8 +64,8 @@ flex-wrap → tillader linjeskift
 
 ## Box
 ```html
-            <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-                <p className="text-gray-700">Dette er en boks med Tailwind CSS styling.</p>
-            </div>
+<div className="bg-white p-6 rounded-lg shadow-md mb-8">
+    <p className="text-gray-700">Dette er en boks med Tailwind CSS styling.</p>
+</div>
 ```
 
