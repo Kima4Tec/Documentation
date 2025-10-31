@@ -11,6 +11,17 @@
 ```
 
 ## Flex
+Et element med display: flex bliver en flex-container. Dets børn (flex-items) kan så arrangeres fleksibelt. 
+Hovedakse (main axis): Retningen, hvor flex-items arrangeres (standard: vandret, row).   
+Tværakse (cross axis): Vinkelret på hovedaksen (standard: lodret).
+
+### Justering af elementer langs hovedaksen
+- justify-start → mod start
+- justify-center → centreret
+- justify-end → mod slut
+- justify-between → mellemrum mellem
+- justify-around → lige margin omkring
+
 ```html
 <div className="flex flex-row justify-between w-1/2">
     <div className="text-black border-black border-2 p-3">Første i flex</div>
