@@ -56,3 +56,16 @@ flex-wrap → tillader linjeskift
   </button>
 </div>
 ```
+
+## Text
+```html
+    <h1 className="text-4xl font-serif font-bold mb-8 text-black">Tailwind cheatsheet</h1>
+```
+
+## Box
+```html
+            <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+                <p className="text-gray-700">Dette er en boks med Tailwind CSS styling.</p>
+            </div>
+```
+
