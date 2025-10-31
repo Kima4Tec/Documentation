@@ -22,6 +22,14 @@ Tværakse (cross axis): Vinkelret på hovedaksen (standard: lodret).
 - justify-between → mellemrum mellem
 - justify-around → lige margin omkring
 
+### Justering af elementer langs tværaksen
+- items-start → top
+- items-center → centreret
+- items-end → bund
+- items-stretch → strækker sig
+
+flex-wrap → tillader linjeskift
+
 ```html
 <div className="flex flex-row justify-between w-1/2">
     <div className="text-black border-black border-2 p-3">Første i flex</div>
