@@ -31,8 +31,11 @@ Tværakse (cross axis): Vinkelret på hovedaksen (standard: lodret).
 flex-wrap → tillader linjeskift
 
 ```html
-<div className="flex flex-row justify-between w-1/2">
+<div className="flex flex-row justify-between w-1/2 mt-5">
+<div className="flex flex-row gap-5">
     <div className="text-black border-black border-2 p-3">Første i flex</div>
     <div className="text-black border-black border-2 p-3">Andet i flex</div>
-    </div>
+    <div className="text-black border-black border-2 p-3">Tredje i flex</div></div>
+    <div className="text-black border-black border-2 p-3">Fjerde i flex</div>
+</div>
 ```
