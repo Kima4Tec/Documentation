@@ -6,6 +6,7 @@
 ```
 npx create-next-app@latest first-react
 cd first-react
+npm install
 npm run dev
 ```
 
