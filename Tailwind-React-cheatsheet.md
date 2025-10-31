@@ -9,3 +9,11 @@
   <div className="bg-blue-300 flex justify-center items-center">6</div>
 </div>
 ```
+
+## Flex
+```html
+<div className="flex flex-row justify-between w-1/2">
+    <div className="text-black border-black border-2 p-3">Første i flex</div>
+    <div className="text-black border-black border-2 p-3">Andet i flex</div>
+    </div>
+```
