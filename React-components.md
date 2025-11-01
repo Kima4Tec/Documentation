@@ -88,7 +88,7 @@ export default function DashboardPage() {
 
 ```
 
-## Picture and text
+## Billede og tekst
 ```tsx
 "use client";
 import Image from "next/image";
@@ -117,7 +117,7 @@ export default function ImageBox({ imageUrl, caption }: ImageBoxProps) {
 
 ```
 
-### Import on page
+### Import billede på side
 ```tsx
 <ImageBox
   imageUrl="/images/finance1.jpg"
