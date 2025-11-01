@@ -143,11 +143,11 @@ import images from "../data/images.json";
 ```
 
 ### Json fil
-```
+```json
 [
   {
     "imageUrl": "/images/finance1.jpg",
     "caption": "Graf over aktiemarkedet."
   },
-`]
+]
 ```
