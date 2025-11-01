@@ -119,6 +119,8 @@ export default function ImageBox({ imageUrl, caption }: ImageBoxProps) {
 
 ### Import billede på side
 ```tsx
+import ImageBox from "./ImageBox";
+
 <ImageBox
   imageUrl="/images/finance1.jpg"
   caption="Graf over aktiemarkedet."
