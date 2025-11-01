@@ -87,3 +87,32 @@ export default function DashboardPage() {
 
 
 ```
+
+## Picture and text
+```tsx
+"use client";
+import Image from "next/image";
+
+interface ImageBoxProps {
+  imageUrl: string;
+  caption: string;
+}
+
+export default function ImageBox({ imageUrl, caption }: ImageBoxProps) {
+  return (
+    <div className="max-w-sm mx-auto bg-white shadow-lg rounded overflow-hidden">
+      <Image
+        src={imageUrl}
+        alt={caption}
+        width={400}
+        height={300}
+        className="w-full h-64 object-cover"
+      />
+      <div className="p-4">
+        <p className="text-gray-700 text-center">{caption}</p>
+      </div>
+    </div>
+  );
+}
+
+```
