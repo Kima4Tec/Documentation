@@ -1,6 +1,6 @@
 # React komponenter
 ## Header
-```jsx
+```tsx
 "use client";
 import React from "react";
 
@@ -21,7 +21,7 @@ export default function Header() {
 ```
 
 ## Sidebar
-```jsx
+```tsx
 "use client";
 import React from "react";
 
@@ -59,5 +59,31 @@ export default function Sidebar() {
     </aside>
   );
 }
+
+```
+
+## Main page
+```tsx
+"use client";
+import React from "react";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+
+export default function DashboardPage() {
+  return (
+    <div className="h-screen flex flex-col">
+      <Header />
+
+      <div className="flex flex-1">
+        <Sidebar />
+
+        <main className="flex-1 p-4 bg-gray-100">
+          <p className="text-black">Her kan du indsætte dit indhold.</p>
+        </main>
+      </div>
+    </div>
+  );
+}
+
 
 ```
