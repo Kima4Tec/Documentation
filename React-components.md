@@ -126,3 +126,28 @@ import ImageBox from "./ImageBox";
   caption="Graf over aktiemarkedet."
 />
 ```
+
+## Mapping af billeder og import fra json
+```tsx
+import images from "../data/images.json";
+
+          <div className="grid grid-cols-3 p-8 gap-6">
+            {images.map((img, index) => (
+              <ImageBox
+                key={index}
+                imageUrl={img.imageUrl}
+                caption={img.caption}
+              />
+            ))}
+          </div>
+```
+
+### Json fil
+´´´json
+[
+  {
+    "imageUrl": "/images/finance1.jpg",
+    "caption": "Graf over aktiemarkedet."
+  },
+]
+```
