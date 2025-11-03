@@ -135,7 +135,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 ```
 
-Til Postgres:
+**Til Postgres:**
 - installér NuGet pakke: npgsql.entityframeworkcore.postgresql
 - ændring af appsettings:
 ```
@@ -149,7 +149,7 @@ docker exec -it postgres-db psql -U postgres
 ```
 CREATE DATABASE standarddb;
 ```
-ytil sidst afslut med: \q
+**til sidst afslut med: \q**
 ```
 
 opdater migrations og db:
