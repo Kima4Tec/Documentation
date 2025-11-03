@@ -120,3 +120,43 @@ builder.Services.AddCors(options =>
         });
 });
 ```
+
+## Connectionstring til SQL
+```
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+```
+
+## Connectionstring til Postgres
+```
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+```
+
+Til Postgres:
+- installér NuGet pakke: npgsql.entityframeworkcore.postgresql
+- ændring af appsettings:
+```
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=standarddb;Username=postgres;Password=ditEgetPassword"
+```
+- installer db i fx Docker, opret db:
+```
+docker exec -it postgres-db psql -U postgres
+```
+```
+CREATE DATABASE standarddb;
+```
+ytil sidst afslut med: \q
+```
+
+opdater migrations og db:
+```
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+```
+
+
