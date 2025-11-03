@@ -13,6 +13,7 @@
     }
 
 ## Tilføj Swagger/OpenAPI support til API dokumentation og test via Swagger UI, så man kan se kommentarer fra api.
+```
 builder.Services.AddEndpointsApiExplorer();  
 builder.Services.AddSwaggerGen(s =>   
 {  
@@ -40,4 +41,5 @@ builder.Services.AddSwaggerGen(s =>
   {    
      s.IncludeXmlComments(xmlApplicationPath);    
   }    
-    });    
+    });
+```
