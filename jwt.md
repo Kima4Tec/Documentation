@@ -18,3 +18,51 @@
                };
            });
 ```
+
+
+## Tilføj Token i controller
+```
+        //Opretter JWT token baseret på brugerens oplysninger og roller
+        private string CreateToken(User user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.LoginName),
+                new Claim(ClaimTypes.Role, user.Role?.ToString() ?? "Bruger")
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                _configuration.GetValue<string>("Jwt:Secret")!));
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
+
+            var tokenDescriptor = new JwtSecurityToken(
+                issuer: _configuration.GetValue<string>("Jwt:Issuer"),
+                audience: _configuration.GetValue<string>("Jwt:Audience"),
+                claims: claims,
+                expires: DateTime.UtcNow.AddDays(1),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
+        }
+```
+
+## Få token ved login
+```
+        //Login med brugernavn og password - får et JWT token tilbage ved succesfuldt login
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            var user = await _userService.GetUserByUsernameAsync(request.UserName);
+            if (user != null && !user.IsFirstTimeLoggedIn && user.isActive &&
+                _userService.VerifyPassword(request.Password, user.Password))
+            {
+                string token = CreateToken(user);
+                return Ok(new { token });
+            }
+
+            return Unauthorized(new { message = "Ugyldigt login" });
+        }
+
+```
