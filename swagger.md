@@ -7,11 +7,13 @@
   builder.Services.AddSwaggerGen();
 ```
 ## Tilføj Swagger til udviklingsmiljø til app
+```
   if (app.Environment.IsDevelopment())
     {
       app.UseSwagger();
       app.UseSwaggerUI();
     }
+```
 
 ## Tilføj Swagger/OpenAPI support til API dokumentation og test via Swagger UI, så man kan se kommentarer fra api.
 ```
