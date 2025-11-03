@@ -1,4 +1,5 @@
 # React henter data fra SQL database gennem .net api
+(Virker også med PostGres)
 
 ## React kode:
 ```
