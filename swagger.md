@@ -48,3 +48,25 @@
                 }
             });
 ```
+
+## Tilføj Swagger med authentication
+
+```
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FilmFrame API", Version = "v1" });
+
+                // Tilføj JWT Bearer support
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Indtast 'Bearer {token}' i headeren. Eksempel: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9..."
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+```
