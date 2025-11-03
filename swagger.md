@@ -2,9 +2,10 @@
 # Swagger i program.cs
 
 ## Tilføj Swagger til service
+```
   builder.Services.AddEndpointsApiExplorer();
   builder.Services.AddSwaggerGen();
-
+```
 ## Tilføj Swagger til udviklingsmiljø til app
   if (app.Environment.IsDevelopment())
     {
