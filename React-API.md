@@ -146,13 +146,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 ```
 docker exec -it postgres-db psql -U postgres
 ```
+
 ```
 CREATE DATABASE standarddb;
 ```
-**til sidst afslut med: \q**
-```
 
-opdater migrations og db:
+**til sidst afslut med: \q**
+
+**opdater migrations og db:**
 ```
 dotnet ef migrations add InitialCreate
 dotnet ef database update
