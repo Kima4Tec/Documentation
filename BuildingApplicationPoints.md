@@ -13,3 +13,5 @@
 
 
 *For each part of your application, you will need to decide whether you will build a solution yourself or use other tools, such as packages, libraries, and frameworks.*
+
+<img width="3200" height="1144" alt="image" src="https://github.com/user-attachments/assets/00f4ee05-c600-455f-8221-c52d684c3c85" />
