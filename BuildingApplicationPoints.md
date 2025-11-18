@@ -10,4 +10,6 @@
 - Performance - how to optimize your application for end-users.
 - Scalability - how your application adapts as your team, data, and traffic grow.
 - Developer Experience - your team's experience building and maintaining your application.
+
+
 *For each part of your application, you will need to decide whether you will build a solution yourself or use other tools, such as packages, libraries, and frameworks.*
