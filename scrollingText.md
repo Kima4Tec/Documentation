@@ -1,6 +1,6 @@
 # Scrolling text
 
-### CSS
+### CSS hos gnist.show
 ```CSS
 .movingtext-container {
   overflow: hidden;
