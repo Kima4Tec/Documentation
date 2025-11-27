@@ -56,3 +56,5 @@
   animation: marquee-scroll 150s linear infinite;
 }
 ```
+**will-change** er en CSS-egenskab, der bruges til at fortælle browseren hvilke CSS-egenskaber et element sandsynligvis kommer til at ændre sig i. 
+Dette giver browseren mulighed for at forberede optimeringer, så animationen kører mere flydende.
