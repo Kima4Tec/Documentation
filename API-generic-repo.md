@@ -1,3 +1,4 @@
+```
 using FilmFrame.Application.Interfaces;
 using FilmFrame.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -80,3 +81,4 @@ namespace FilmFrame.Infrastructure.Repositories
         }
     }
 }
+```
