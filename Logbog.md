@@ -1,7 +1,12 @@
 # Logbog
 
 ### 27.11.2025
-CSS temafiler
+Har lavet CSS skabeloner gemt som dokumentation i Github, bl.a. med text-skabelon, knap, boks o.a.
+Har desuden gemt controller og generisk repo. 
+Og scolling text.
+Har lavet components til Datacontrol i FilmFrame Appen: Director, genre, city og 
+
+
 
 ### 26.11.2025
 Har arbejdet med login-delen i FilmFrame. Det virker, men kan forbedres i både API og Angular. Tjek controllere, om de virker. 
