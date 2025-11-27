@@ -7,6 +7,27 @@
 | `:focus`     | Elementet har keyboard/mus fokus      | Inputfelt får ramme |
 | `:active`    | Elementet klikkes på (mus holdt nede) | Knappen presses ned |
 
+```
+.box-hover-shadow:hover {
+    box-shadow: 0 8px 20px purple; /* stærkere og større skygge */
+    transform: translateX(5px);     /* løfter boksen lidt op */
+}
+
+.box-hover-shadow:focus {
+    box-shadow: 0 8px 10px green; /* stærkere og større skygge */
+        border:10px solid lightblue; /* bredde + stil + farve */
+    transform: translateX(5px);     /* løfter boksen lidt op */
+}
+
+.box-hover-shadow:active {
+    box-shadow: 0 8px 10px yellowgreen; /* stærkere og større skygge */
+    transform: translateX(5px);     /* løfter boksen lidt op */
+}
+```
+Hvis det bliver gjort på en **<div>** virker det kun, hvis du sætter:
+```
+    <div class="box-hover-shadow" tabindex="0">
+```
 
 ## Content
 
