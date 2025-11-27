@@ -34,3 +34,25 @@
   }
 }
 ```
+
+
+### På infoskærm virker dette, så teksten ikke hakker på Rasperry Pi, der har mindre processor kraft:
+```CSS
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-scroll {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 20px;
+  will-change: transform;
+  animation: marquee-scroll 150s linear infinite;
+}
+```
