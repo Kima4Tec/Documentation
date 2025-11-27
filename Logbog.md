@@ -1,5 +1,8 @@
 # Logbog
 
+### 26.11.2025
+Har arbejdet med login-delen i FilmFrame. Det virker, men kan forbedres i både API og Angular. Tjek controllere, om de virker. 
+
 ### 24.11.2025
 Skriver jobansøgninger til:
 - Netcompany
