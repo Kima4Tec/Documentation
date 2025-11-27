@@ -24,7 +24,7 @@
     transform: translateX(5px);     /* løfter boksen lidt op */
 }
 ```
-Hvis det bliver gjort på en **<div>** virker det kun, hvis du sætter:
+Hvis det bliver gjort på en **`<div>`** virker det kun, hvis du sætter tabindex="0" på div'en:
 ```
     <div class="box-hover-shadow" tabindex="0">
 ```
