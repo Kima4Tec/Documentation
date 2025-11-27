@@ -1,3 +1,4 @@
+```
 using Application.Dtos;
 using Application.Interfaces.IAuthor;
 using Domain.Entities;
@@ -119,3 +120,4 @@ namespace SemikolonApi.Controllers
         }
     }
 }
+```
