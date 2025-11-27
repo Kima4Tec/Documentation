@@ -1,5 +1,13 @@
 # CSS Styling
 
+## Mus og tastatur tilstande
+| Pseudo-class | Hvornår den aktiveres                 | Eksempel i UI       |
+| ------------ | ------------------------------------- | ------------------- |
+| `:hover`     | Musen er over elementet               | Knappen lyser op    |
+| `:focus`     | Elementet har keyboard/mus fokus      | Inputfelt får ramme |
+| `:active`    | Elementet klikkes på (mus holdt nede) | Knappen presses ned |
+
+
 ## Content
 
 | Værdi         | Hvordan bredden bestemmes                     |
