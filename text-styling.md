@@ -3,7 +3,7 @@
 ```
 /* text-styling */
 .text-title {
-    font-family: 'TECSans-Regular', Arial, Helvetica, sans-serif;
+    font-family: 'Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-size: 2.5em;
     line-height: 1.2;
@@ -11,7 +11,7 @@
     }
 
     .text-title-bold {
-        font-family: 'TECSans-Bold', Arial, Helvetica, sans-serif;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
         font-weight: bold;
         font-size: 2.5em;
         line-height: 1.2;
@@ -33,14 +33,14 @@
 }
 
 .text-header3 {
-    font-family: 'TECSans-Regular', Arial, Helvetica, sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-size: 1.7em;
     line-height: 1.2;
     padding-bottom: 5px;
 }
 .text-header3-bold {
-    font-family: 'TECSans-Bold', Arial, Helvetica, sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: 800;
     font-size: 1.7em;
     line-height: 1.2;
@@ -48,12 +48,6 @@
     letter-spacing: 0.7px;
 }
 
-#video-special1{
-margin-top: 20px;
-}
-#video-special2{
-    margin-top: 20px;
-    }
 .text-header4 {
     font-weight: normal;
     font-size: 1.33em;
