@@ -15,7 +15,7 @@
 
 .box-hover-shadow:focus {
     box-shadow: 0 8px 10px green; /* stærkere og større skygge */
-        border:10px solid lightblue; /* bredde + stil + farve */
+    border:10px solid lightblue; /* bredde + stil + farve */
     transform: translateX(5px);     /* løfter boksen lidt op */
 }
 
