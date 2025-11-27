@@ -3,7 +3,7 @@
 ```
 /* text-styling */
 .text-title {
-    font-family: 'Verdana, Arial, Helvetica, sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-size: 2.5em;
     line-height: 1.2;
