@@ -1,5 +1,60 @@
 # CSS Styling
 
+## Knap med reaktion
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knap</title>
+    <style>
+        .centrering{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .message{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: none;
+            margin-top: 10px;
+            color: rgb(8, 241, 8);
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="centrering">
+    <button id="myButton">Klik her</button>
+    <div class="message" id="myMessage">Du har klikket på knappen</div>    
+    </div>
+
+<script>
+    const myButton = document.getElementById('myButton');
+    const message = document.getElementById('myMessage');
+
+    myButton.addEventListener('click', () => {
+        if (message.style.display === 'none' || message.style.display === '') {
+            message.style.display = 'block';
+            document.body.style.backgroundColor = 'black';
+        } else {
+            message.style.display = 'none';
+            document.body.style.backgroundColor = 'white';
+        }
+        // alert(['Hej'])
+    });
+</script>
+
+</body>
+</html>
+```
+
 ## Mus og tastatur tilstande
 | Pseudo-class | Hvornår den aktiveres                 | Eksempel i UI       |
 | ------------ | ------------------------------------- | ------------------- |
