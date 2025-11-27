@@ -1,8 +1,33 @@
 # CSS Styling
 
+## Box-styling
 
+```
+.box-hover-shadow {
+    padding: 20px 40px;
+    margin: 50px auto;
+    width: fit-content;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    border:10px solid red;
+    border-radius: 10px;
 
-## Text-Styling
+    /* Purple skygge */
+    box-shadow: 0 4px 10px purple;
+    
+    /* Smidig overgang ved hover */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover-effekt */
+.box-hover-shadow:hover {
+    box-shadow: 0 8px 20px purple; /* stærkere og større skygge */
+    transform: translateY(-5px);     /* løfter boksen lidt op */
+}
+```
+
+## Text-styling
 ```
 /* text-styling */
 .text-title {
