@@ -1,6 +1,6 @@
 #Power Bi
 
-### Install english:
+### Installér Power Bi på engelsk:
 https://www.microsoft.com/en-us/download/details.aspx?id=58494
 
 ## De tre vigtigste Power BI-elementer
@@ -18,3 +18,24 @@ https://www.microsoft.com/en-us/download/details.aspx?id=58494
 **✔ Gateway**
 
 - Hvis dine data ligger lokalt (SQL Server, Excel på netværksdrev osv.), skal du bruge Gateway til automatisk refresh.
+
+
+## DAX
+### Eksempler på målinger fra FirstReport:
+```
+Total Sales YTD = 
+CALCULATE([Total Sales Amount],DATESYTD('Calendar'[Date]))
+```
+
+```
+Total Sales Amount = SUMX('Internet Sales', 'Internet Sales'[Freight]+'Internet Sales'[Tax Amt]+'Internet Sales'[Sales Amount]) 
+```
+```
+Total Quantity = 
+SUM ('Internet Sales'[Order Quantity])
+```
+
+```
+Total Freight = 
+SUM ( 'Internet Sales'[Freight])
+```
