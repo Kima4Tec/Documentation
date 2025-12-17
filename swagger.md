@@ -70,3 +70,41 @@
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
 ```
+eller denne, som også virker:
+```
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Login API",
+                    Version = "v1"
+                });
+
+                // Fortæl Swagger hvordan JWT ser ud
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Indtast JWT token sådan her: Bearer {token}"
+                });
+
+                // Gør Authorize global for endpoints
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+            });
+```
