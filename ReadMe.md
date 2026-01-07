@@ -20,3 +20,11 @@ Tidligere lavede jeg den i Blazor. Jeg kunne forsøge at lave den i React, Angul
 
 ## Webshop
 Hvordan laver man en webshop?
+Frontend + backend.
+
+## Power Bi med data gennem API
+
+## Behandling af data fra API
+Hvordan kan man få backend med ind?
+### Indhold
+- Frontend med diagrammer, der viser data
