@@ -1,1 +1,3 @@
-# Dokumentation
+# Ideer til projekter
+
+## Whisky-side
