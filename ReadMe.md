@@ -7,6 +7,7 @@ Tidligere lavede jeg den i Blazor. Jeg kunne forsøge at lave den i React, Angul
 - Database (Kan være med forskellige db, for at prøve forskellige muligheder af)
 - Frontend (Angular, React, Blazor)
 - Billed, der skal kunne indsættes på siden og i db
+- Models: Whisky, User, Rating, Cask, Country, Distillery, Category
 
 
 ## Biograf-side med enkelt biograf
@@ -17,10 +18,51 @@ Tidligere lavede jeg den i Blazor. Jeg kunne forsøge at lave den i React, Angul
 - Vælg tid
 - Reservering af sæde(r)
 - Models: Seat, Movie, Time, User, Actor, Director, Language, Genre
+- Pagination
+- Breadcrums
+- Generics
 
 ## Webshop
-Hvordan laver man en webshop?
-Frontend + backend.
+### Backend (API – C# / .NET)
+- Produkter (CRUD) 
+- Kategorier 
+- Brugere & login
+- Kurv 
+- Ordrer
+- Betaling (Stripe / PayPal) 
+- Database (SQL Server) 
+
+#### Teknologi:
+- ASP.NET Core Web API
+- Entity Framework Core
+- JWT-login
+- SQL Server
+
+🔹 Frontend (Angular eller React)
+
+Det brugeren ser:
+
+Produktliste
+
+Produktside
+
+Kurv
+
+Checkout
+
+Login / registrering
+
+Admin-panel (opret/rediger produkter)
+
+👉 Teknologi:
+
+Angular eller React
+
+HTTP-kald til API
+
+Routing
+
+State management
 
 ## Power Bi med data gennem API
 
