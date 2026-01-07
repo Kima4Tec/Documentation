@@ -38,31 +38,20 @@ Tidligere lavede jeg den i Blazor. Jeg kunne forsøge at lave den i React, Angul
 - JWT-login
 - SQL Server
 
-🔹 Frontend (Angular eller React)
+### Frontend (Angular eller React)
+- Produktliste
+- Produktside
+- Kurv
+- Checkout
+- Login / registrering
+- Admin-panel (opret/rediger produkter)
 
-Det brugeren ser:
+#### Teknologi:
+- Angular eller React
+- HTTP-kald til API (Service)
+- Routing
+- State management
 
-Produktliste
-
-Produktside
-
-Kurv
-
-Checkout
-
-Login / registrering
-
-Admin-panel (opret/rediger produkter)
-
-👉 Teknologi:
-
-Angular eller React
-
-HTTP-kald til API
-
-Routing
-
-State management
 
 ## Power Bi med data gennem API
 
