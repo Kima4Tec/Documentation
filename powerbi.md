@@ -40,6 +40,7 @@ Total Freight =
 SUM ( 'Internet Sales'[Freight])
 ```
 
+## M
 ### M: get data from api with token
 ```M
 = (Query as text) => let
