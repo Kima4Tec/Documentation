@@ -3,6 +3,24 @@
 ### shell:recent
 shows all recent files opened
 
+### shell:downloads
+shows all recent downloads
+
+### shell:personal
+shows folder documents
+
+### appwiz.cpl
+Add and remove programs
+
+### msinfo32
+shows pc-info
+
+### get-computerinfo
+shows pc-info using powershell
+
+### Get-CimInstance Win32_VideoController
+shows graphic card info
+
 ### windows + x
 shows power user menu
 
