@@ -4,9 +4,13 @@
 Undersøgte og lavede hamburger på side med html og javascript. Brugte unicode karakter for hamburger &#8801; og kryds &#x2715; Gjorde også siden responsiv:
 
 /* iPad / Tablet 600px – 900px */
+
 @media (min-width: 600px) and (max-width: 900px) {}
+
 /* Mobil < 600px */
+
 @media (max-width: 600px) {}
+
 
 Senere lavede jeg opgave fra Learn Microsoft:
 https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-quickstart-learn-dax-basics
