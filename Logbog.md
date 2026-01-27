@@ -1,5 +1,8 @@
 # Logbog
 
+### 27.01.2026
+Undersøgte og lavede hamburger på side med html og javascript. Brugte unicode karakter for &#8801;
+
 ### 27.11.2025
 Har lavet CSS skabeloner gemt som dokumentation i Github, bl.a. med text-skabelon, knap, boks o.a.
 Har desuden gemt controller og generisk repo. 
