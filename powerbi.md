@@ -45,8 +45,7 @@ SUM ( 'Internet Sales'[Freight])
 *from Learn Microsoft*
 
 ## Syntax
-
-![Syntax](syntax.png)
+<img width="474" height="142" alt="qsdax_1_syntax" src="https://github.com/user-attachments/assets/664cdf45-eadd-471c-aef0-a1856541149c" />
 
 Denne formel indeholder følgende syntakselementer:
 
@@ -65,7 +64,8 @@ F. Den refererede kolonne, [SalesAmount], i tabellen Sales. Med dette argument v
 
 Her er min løsning på opgaven:
 
-![Opgaveløsning](losning1.png)
+<img width="391" height="198" alt="qsdax_3_chart" src="https://github.com/user-attachments/assets/ff2dfaca-20c5-47d4-9012-db8cb01716b2" />
+
 
 **Funktionsreferencen er god i læringsprocessen:**
 https://learn.microsoft.com/da-dk/dax/
@@ -91,7 +91,7 @@ Filterkontekst er let at se i dine rapporter. Når du f.eks. tilføjer TotalCost
 
 Hvorfor er filterkontekst så vigtig for DAX? Du har set, at filterkontekst kan anvendes ved at tilføje felter til en visualisering. Filterkontekst kan også anvendes i en DAX-formel ved at definere et filter med funktioner som ALLE, RELATEREDE, FILTER, BEREGN, efter relationer og efter andre målinger og kolonner. Lad os f.eks. se på følgende formel i en måling med navnet Butikssalg:
 
-![context](qsdax_4_context.png)
+<img width="735" height="149" alt="qsdax_4_context" src="https://github.com/user-attachments/assets/5b9fa5ce-41d0-4d1f-a671-79da08bf1163" />
 
 For bedre at forstå denne formel kan vi opdele den, ligesom med andre formler.
 
