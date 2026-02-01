@@ -19,8 +19,8 @@ app.UseCors("AllowAngularDev");
 ```
 Access to XMLHttpRequest at 'https://localhost:7279/api/auth/login' from origin 'http://localhost:4200'
 has been blocked by CORS policy:
-Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin'
- header is present on the requested resource.
+Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' 
+header is present on the requested resource.
 ```
 samt oplysninger om det specifikke kald:
 ```
