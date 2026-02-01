@@ -1,6 +1,7 @@
 # CORS
 *Væsentligt for kommunikation mellen app og api.  Cross-Origin Resource Sharing*
 
+```
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularDev",
@@ -13,6 +14,7 @@ builder.Services.AddCors(options =>
 });
 
 app.UseCors("AllowAngularDev");
+```
 
 
 ## Fejlbeskeden med F12 i console ser sådan ud:
