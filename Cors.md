@@ -34,5 +34,5 @@ LoginComponent_Template_form_submit_0_listener	@	login.ts:13
 ```
 
 ## Dokumentation
-🔗 [https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore‑10.0](https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore‑10.0) ([Microsoft Learn][1])
+🔗 [https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore‑10.0](https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore‑10.0)
 
