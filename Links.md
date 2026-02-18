@@ -14,3 +14,6 @@
 
 ## Learning 
 [LinkedIn Learning](https://www.linkedin.com/learning/)
+
+## Jobsøgning
+[JobIndex](https://www.jobindex.dk/)
