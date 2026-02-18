@@ -13,4 +13,4 @@ https://angular.dev/playground?templateId=0-hello-world
 https://jsonformatter.org/xml-to-json
 
 ##Learning
-[LinkedInLearning](#https://www.linkedin.com/learning/)
+(https://www.linkedin.com/learning/)](#https://www.linkedin.com/learning/)
