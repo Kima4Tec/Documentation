@@ -4,9 +4,9 @@
 [Typescript to SQL](https://kysely.dev/)
 
 ## Coding
-[Sololearn](https://www.sololearn.com/en/)
-[CodeAcademy](https://www.codecademy.com/)
-[Angular learning](https://angular.dev/playground?templateId=0-hello-world)
+[Sololearn](https://www.sololearn.com/en/)  
+[CodeAcademy](https://www.codecademy.com/)  
+[Angular learning](https://angular.dev/playground?templateId=0-hello-world)  
 
 
 ## Format XML til JSON
