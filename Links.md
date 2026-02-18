@@ -17,11 +17,11 @@
 
 ## Jobsøgning
 [JobIndex](https://www.jobindex.dk/)  
-[Jobnet.dk]()  
-[StepStone.dk]()  
-[Careerjet.dk]()  
-[LinkedIn]()  
-[GrabJobs]()  
+[Jobnet.dk](https://jobnet.dk/)  
+[StepStone.dk](https://www.stepstone.dk/)  
+[Careerjet.dk](https://www.careerjet.dk/)  
+[LinkedIn](https://www.linkedin.com/feed/)  
+[GrabJobs](https://grabjobs.co/denmark)  
 [Techjobs](https://techjob.dk/)  
 [FindJob](Findjob.dk) Alt samlet et sted  
 [ITudviklerjobs.dk](https://itudviklerjobs.dk/)  
