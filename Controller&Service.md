@@ -81,10 +81,9 @@ namespace NewModel.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
         {
-            var adults = await _service.FilterAsync(p => p.FirstName == "Christian");
             var people = await _service.GetAllAsync();
 
-            return Ok(adults);
+            return Ok(people);
         }
 
         // GET: api/People/5    
