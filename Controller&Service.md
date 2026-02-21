@@ -4,84 +4,24 @@ Her er de sat op side-by-side, så du tydeligt kan se mappingen mellem din C# AP
 
 ## API ↔ Angular mapping
 
-| C# ASP.NET Core API (PeopleController) | Angular TypeScript (PeopleService) |
-|----------------------------------------|-------------------------------------|
-| ```csharp
-// GET: api/People
-[HttpGet]
-public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
-{
-    var adults = await _service.FilterAsync(p => p.FirstName == "Christian");
-    return Ok(adults);
-}
-``` | ```ts
-// GET: api/People
-getAll(): Observable<Person[]> {
-  return this.http.get<Person[]>(this.apiUrl);
-}
-``` |
-| ```csharp
-// GET: api/People/5
-[HttpGet("{id}")]
-public async Task<ActionResult<Person>> GetPerson(int id)
-{
-    var person = await _service.GetByIdAsync(id);
-    if (person == null)
-        return NotFound();
-    return Ok(person);
-}
-``` | ```ts
-// GET: api/People/{id}
-getById(id: number): Observable<Person> {
-  return this.http.get<Person>(`${this.apiUrl}/${id}`);
-}
-``` |
-| ```csharp
-// POST: api/People
-[HttpPost]
-public async Task<ActionResult<Person>> PostPerson(PersonDto personDto)
-{
-    var createdPerson = await _service.CreateAsync(personDto);
-    return Ok(createdPerson);
-}
-``` | ```ts
-// POST: api/People
-create(person: PersonDto): Observable<Person> {
-  return this.http.post<Person>(this.apiUrl, person);
-}
-``` |
-| ```csharp
-// PUT: api/People/{id}
-[HttpPut("{id}")]
-public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto)
-{
-    var updatedPerson = await _service.UpdateAsync(id, personDto);
-    if (updatedPerson == null)
-        return NotFound();
-    return Ok(updatedPerson);
-}
-``` | ```ts
-// PUT: api/People/{id}
-update(id: number, person: PersonDto): Observable<Person> {
-  return this.http.put<Person>(`${this.apiUrl}/${id}`, person);
-}
-``` |
-| ```csharp
-// DELETE: api/People/{id}
-[HttpDelete("{id}")]
-public async Task<IActionResult> DeletePerson(int id)
-{
-    var success = await _service.DeleteAsync(id);
-    if (!success)
-        return NotFound();
-    return NoContent();
-}
-``` | ```ts
-// DELETE: api/People/{id}
-delete(id: number): Observable<void> {
-  return this.http.delete<void>(`${this.apiUrl}/${id}`);
-}
-``` |
+---
+
+| API-Controller (C#)                                                                                                                                                                                                                                                                 | APP-Service (Angular)                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `// GET: api/People` <br> `[HttpGet]` <br> `public async Task<ActionResult<IEnumerable<Person>>> GetPerson() { var adults = await _service.FilterAsync(p => p.FirstName == "Christian"); return Ok(adults); }`                                                                      | `// GET: api/People` <br> `getAll(): Observable<Person[]> { return this.http.get<Person[]>(this.apiUrl); }`                                                   |
+| `// GET: api/People/5` <br> `[HttpGet("{id}")]` <br> `public async Task<ActionResult<Person>> GetPerson(int id) { var person = await _service.GetByIdAsync(id); if (person == null) return NotFound(); return Ok(person); }`                                                        | `// GET: api/People/{id}` <br> `getById(id: number): Observable<Person> { return this.http.get<Person>(\`${this.apiUrl}/${id}`); }`                           |
+| `// POST: api/People` <br> `[HttpPost]` <br> `public async Task<ActionResult<Person>> PostPerson(PersonDto personDto) { var createdPerson = await _service.CreateAsync(personDto); return Ok(createdPerson); }`                                                                     | `// POST: api/People` <br> `create(person: PersonDto): Observable<Person> { return this.http.post<Person>(this.apiUrl, person); }`                            |
+| `// PUT: api/People/{id}` <br> `[HttpPut("{id}")]` <br> `public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto) { var updatedPerson = await _service.UpdateAsync(id, personDto); if (updatedPerson == null) return NotFound(); return Ok(updatedPerson); }` | `// PUT: api/People/{id}` <br> `update(id: number, person: PersonDto): Observable<Person> { return this.http.put<Person>(\`${this.apiUrl}/${id}`, person); }` |
+| `// DELETE: api/People/{id}` <br> `[HttpDelete("{id}")]` <br> `public async Task<IActionResult> DeletePerson(int id) { var success = await _service.DeleteAsync(id); if (!success) return NotFound(); return NoContent(); }`                                                        | `// DELETE: api/People/{id}` <br> `delete(id: number): Observable<void> { return this.http.delete<void>(\`${this.apiUrl}/${id}`); }`                          |
+
+---
+
+Denne version kan du **direkte kopiere ind i Markdown eller Word**, og den viser tydeligt **C# API-metode → Angular service-metode**.
+
+Hvis du vil, kan jeg lave en **endnu pænere version**, hvor hver metode står **i blokke med korrekt indrykning**, så den ser ud som kodeblokke i tabellen.
+
+Vil du have, jeg gør det?
+
 
 ## 📌 Kort fortalt
 
