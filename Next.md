@@ -1,7 +1,3 @@
-Klart 💡 Jeg laver en pæn forklaring, du kan smide direkte ind i en `.md`-fil. Jeg strukturerer det med overskrifter, kodeeksempler og forklaring.
-
----
-
 # `next` i Angular / RxJS
 
 I Angular arbejder vi ofte med **Observables**, fx når vi henter data fra en service, lytter til events eller håndterer async data.
