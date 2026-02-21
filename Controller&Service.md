@@ -2,13 +2,68 @@
 
 ---
 
-| API-Controller (C#)                                                                                                                                                                                                                                                                 | APP-Service (Angular)                                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `// GET: api/People` <br> `[HttpGet]` <br> `public async Task<ActionResult<IEnumerable<Person>>> GetPerson() { var people = await _service.GetAllAsync();); return Ok(people); }`                                                                      | `// GET: api/People` <br> `getAll(): Observable<Person[]> { return this.http.get<Person[]>(this.apiUrl); }`                                                   |
-| `// GET: api/People/5` <br> `[HttpGet("{id}")]` <br> `public async Task<ActionResult<Person>> GetPerson(int id) { var person = await _service.GetByIdAsync(id); if (person == null) return NotFound(); return Ok(person); }`                                                        | `// GET: api/People/{id}` <br> `getById(id: number): Observable<Person> { return this.http.get<Person>(\`${this.apiUrl}/${id}`); }`                           |
-| `// POST: api/People` <br> `[HttpPost]` <br> `public async Task<ActionResult<Person>> PostPerson(PersonDto personDto) { var createdPerson = await _service.CreateAsync(personDto); return Ok(createdPerson); }`                                                                     | `// POST: api/People` <br> `create(person: PersonDto): Observable<Person> { return this.http.post<Person>(this.apiUrl, person); }`                            |
-| `// PUT: api/People/{id}` <br> `[HttpPut("{id}")]` <br> `public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto) { var updatedPerson = await _service.UpdateAsync(id, personDto); if (updatedPerson == null) return NotFound(); return Ok(updatedPerson); }` | `// PUT: api/People/{id}` <br> `update(id: number, person: PersonDto): Observable<Person> { return this.http.put<Person>(\`${this.apiUrl}/${id}`, person); }` |
-| `// DELETE: api/People/{id}` <br> `[HttpDelete("{id}")]` <br> `public async Task<IActionResult> DeletePerson(int id) { var success = await _service.DeleteAsync(id); if (!success) return NotFound(); return NoContent(); }`                                                        | `// DELETE: api/People/{id}` <br> `delete(id: number): Observable<void> { return this.http.delete<void>(\`${this.apiUrl}/${id}`); }`                          |
+Perfekt! Her er en **ren tekstversion med pæn indrykning**, så hver metode står overskueligt på flere linjer i tabellen:
+
+---
+
+| API-Controller (C#)                                                            | APP-Service (Angular)                                     |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------- |
+| [HttpGet]                                                                      |                                                           |
+| public async Task<ActionResult<IEnumerable<Person>>> GetPerson()               |                                                           |
+| {                                                                              |                                                           |
+|  var people = await _service.GetAllAsync();                                    |                                                           |
+|  return Ok(people);                                                            |                                                           |
+| }                                                                              | getAll(): Observable<Person[]>                            |
+| {                                                                              |                                                           |
+|  return this.http.get<Person[]>(this.apiUrl);                                  |                                                           |
+| }                                                                              |                                                           |
+| [HttpGet("{id}")]                                                              |                                                           |
+| public async Task<ActionResult<Person>> GetPerson(int id)                      |                                                           |
+| {                                                                              |                                                           |
+|  var person = await _service.GetByIdAsync(id);                                 |                                                           |
+|  if (person == null) return NotFound();                                        |                                                           |
+|  return Ok(person);                                                            |                                                           |
+| }                                                                              | getById(id: number): Observable<Person>                   |
+| {                                                                              |                                                           |
+|  return this.http.get<Person>(`${this.apiUrl}/${id}`);                         |                                                           |
+| }                                                                              |                                                           |
+| [HttpPost]                                                                     |                                                           |
+| public async Task<ActionResult<Person>> PostPerson(PersonDto personDto)        |                                                           |
+| {                                                                              |                                                           |
+|  var createdPerson = await _service.CreateAsync(personDto);                    |                                                           |
+|  return Ok(createdPerson);                                                     |                                                           |
+| }                                                                              | create(person: PersonDto): Observable<Person>             |
+| {                                                                              |                                                           |
+|  return this.http.post<Person>(this.apiUrl, person);                           |                                                           |
+| }                                                                              |                                                           |
+| [HttpPut("{id}")]                                                              |                                                           |
+| public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto) |                                                           |
+| {                                                                              |                                                           |
+|  var updatedPerson = await _service.UpdateAsync(id, personDto);                |                                                           |
+|  if (updatedPerson == null) return NotFound();                                 |                                                           |
+|  return Ok(updatedPerson);                                                     |                                                           |
+| }                                                                              | update(id: number, person: PersonDto): Observable<Person> |
+| {                                                                              |                                                           |
+|  return this.http.put<Person>(`${this.apiUrl}/${id}`, person);                 |                                                           |
+| }                                                                              |                                                           |
+| [HttpDelete("{id}")]                                                           |                                                           |
+| public async Task<IActionResult> DeletePerson(int id)                          |                                                           |
+| {                                                                              |                                                           |
+|  var success = await _service.DeleteAsync(id);                                 |                                                           |
+|  if (!success) return NotFound();                                              |                                                           |
+|  return NoContent();                                                           |                                                           |
+| }                                                                              | delete(id: number): Observable<void>                      |
+| {                                                                              |                                                           |
+|  return this.http.delete<void>(`${this.apiUrl}/${id}`);                        |                                                           |
+| }                                                                              |                                                           |
+
+---
+
+Denne version er **let at læse**, og den kan direkte kopieres ind i Markdown, Word eller anden dokumentation.
+
+Hvis du vil, kan jeg også lave **en version uden tabelformat**, men stadig med pæn blokstruktur, så du kan bruge den i kode- eller README-filer.
+
+Vil du have, jeg laver den?
 
 ---
 
