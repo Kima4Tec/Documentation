@@ -11,6 +11,50 @@
 | delete(id: number): Observable<void> { return this.http.delete<void>(`${this.apiUrl}/${id}`); }                             | [HttpDelete("{id}")] public async Task<IActionResult> DeletePerson(int id) { var success = await _service.DeleteAsync(id); if (!success) return NotFound(); return NoContent(); }                                                           | public async Task<bool> DeleteAsync(int id) { var person = await _repository.GetByIdAsync(id); if (person == null) return false; _repository.Delete(person); await _repository.SaveChangesAsync(); return true; }                             | public void Delete(Person person) { _context.Persons.Remove(person); }                                |
 
 ---
+## Mapping til service
+```
+using NewModel.Dtos;
+using NewModel.Models;
+
+namespace NewModel.Mappings
+{
+    public static class PersonMappingExtensions
+    {
+        public static PersonDto ToDto(this Person person)
+        {
+            return new PersonDto
+            {
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Age = person.Age
+            };
+        }
+        public static Person ToEntity(this PersonDto dto)
+        {
+            return new Person
+            {
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                Age = dto.Age
+            };
+        }
+        public static void UpdateFromDto(this Person person, PersonDto dto)
+        {
+            person.FirstName = dto.FirstName;
+            person.LastName = dto.LastName;
+            person.Age = dto.Age;
+        }
+
+        public static IEnumerable<PersonDto> ToDto(this IEnumerable<Person> persons)
+        {
+            return persons.Select(p => p.ToDto());
+        }
+    }
+}
+```
+
+
+---
 
 | API-Service metode (PeopleService)                                                                                          | Component-metode (Angular)                                                                                                                                                                                                                                                                                                                                                                                                                                                       | HTML-template eksempel                                                                                                                                                                                                                                                                |
 | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
