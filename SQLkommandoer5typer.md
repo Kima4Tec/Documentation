@@ -24,7 +24,7 @@ COMMENT	Add comments to the data dictionary	COMMENT ON TABLE table_name IS 'comm
 
 RENAME	Rename an object existing in the database	RENAME TABLE old_table_name TO new_table_name;
 
-Example:
+**Example:**
 ```
 CREATE TABLE employees (
     employee_id INT PRIMARY KEY,
