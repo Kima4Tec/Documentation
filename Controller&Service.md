@@ -1,7 +1,3 @@
-Her er de sat op side-by-side, så du tydeligt kan se mappingen mellem din C# API controller og Angular service.
-
----
-
 ## API ↔ Angular mapping
 
 ---
