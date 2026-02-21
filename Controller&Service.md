@@ -1,12 +1,4 @@
-## API ↔ Angular mapping
-
----
-
-Perfekt! Her er en **ren tekstversion med pæn indrykning**, så hver metode står overskueligt på flere linjer i tabellen:
-
----
-
-Ah, nu forstår jeg fuldt ud – du vil have **ren tekstversion af tabellen**, uden kommentarer (`//`) og uden HTML-tags eller backticks. Her er det korrekt renset:
+## API ↔ APP mapping
 
 ---
 
@@ -17,19 +9,6 @@ Ah, nu forstår jeg fuldt ud – du vil have **ren tekstversion af tabellen**, u
 | [HttpPost] public async Task<ActionResult<Person>> PostPerson(PersonDto personDto) { var createdPerson = await _service.CreateAsync(personDto); return Ok(createdPerson); }                                                                 | create(person: PersonDto): Observable<Person> { return this.http.post<Person>(this.apiUrl, person); }                       |
 | [HttpPut("{id}")] public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto) { var updatedPerson = await _service.UpdateAsync(id, personDto); if (updatedPerson == null) return NotFound(); return Ok(updatedPerson); } | update(id: number, person: PersonDto): Observable<Person> { return this.http.put<Person>(`${this.apiUrl}/${id}`, person); } |
 | [HttpDelete("{id}")] public async Task<IActionResult> DeletePerson(int id) { var success = await _service.DeleteAsync(id); if (!success) return NotFound(); return NoContent(); }                                                           | delete(id: number): Observable<void> { return this.http.delete<void>(`${this.apiUrl}/${id}`); }                             |
-
----
-
-
-Perfekt! Nu kan vi lave en **fuld tabel med fire kolonner**, som viser hele flowet:
-
-**Controller → Service → Repository → Angular Service**. Jeg laver en **ren tekstversion** uden kommentarer eller HTML-tags, så den er klar til dokumentation:
-
----
-
-Selvfølgelig! Her er den **fire-kolonne tabel med APP-Service som første kolonne**, så rækkefølgen bliver:
-
-**APP-Service (Angular) → API-Controller → API-Service → Repository**
 
 ---
 
