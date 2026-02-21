@@ -2,55 +2,13 @@
 
 ---
 
-| APP-Service (Angular)                                                                                                       | API-Controller (C#)                                                                                                                                                                                                                         | API-Service (C#)                                                                                                                                                                                                                              | Repository (C#)                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| getAll(): Observable<Person[]> { return this.http.get<Person[]>(this.apiUrl); }                                             | [HttpGet] public async Task<ActionResult<IEnumerable<Person>>> GetPerson() { var people = await _service.GetAllAsync(); return Ok(people); }                                                                 | public async Task<IEnumerable<PersonDto>> GetAllAsync() { var persons = await _repository.GetAllAsync(); return persons.ToDto(); }                                                                                                            | public async Task<IEnumerable<Person>> GetAllAsync() { return await _context.Persons.ToListAsync(); } |
-| getById(id: number): Observable<Person> { return this.http.get<Person>(`${this.apiUrl}/${id}`); }                           | [HttpGet("{id}")] public async Task<ActionResult<Person>> GetPerson(int id) { var person = await _service.GetByIdAsync(id); if (person == null) return NotFound(); return Ok(person); }                                                     | public async Task<PersonDto> GetByIdAsync(int id) { var person = await _repository.GetByIdAsync(id); if (person == null) return null; return person.ToDto(); }                                                                                | public Task<Person> GetByIdAsync(int id) { return _context.Persons.FindAsync(id).AsTask(); }          |
-| create(person: PersonDto): Observable<Person> { return this.http.post<Person>(this.apiUrl, person); }                       | [HttpPost] public async Task<ActionResult<Person>> PostPerson(PersonDto personDto) { var createdPerson = await _service.CreateAsync(personDto); return Ok(createdPerson); }                                                                 | public async Task<PersonDto> CreateAsync(PersonDto dto) { var person = dto.ToEntity(); await _repository.AddAsync(person); await _repository.SaveChangesAsync(); return person.ToDto(); }                                                     | public Task AddAsync(Person person) { return _context.Persons.AddAsync(person).AsTask(); }            |
-| update(id: number, person: PersonDto): Observable<Person> { return this.http.put<Person>(`${this.apiUrl}/${id}`, person); } | [HttpPut("{id}")] public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto) { var updatedPerson = await _service.UpdateAsync(id, personDto); if (updatedPerson == null) return NotFound(); return Ok(updatedPerson); } | public async Task<PersonDto> UpdateAsync(int id, PersonDto dto) { var person = await _repository.GetByIdAsync(id); if (person == null) return null; person.UpdateFromDto(dto); await _repository.SaveChangesAsync(); return person.ToDto(); } | public void Update(Person person) { _context.Persons.Update(person); }                                |
-| delete(id: number): Observable<void> { return this.http.delete<void>(`${this.apiUrl}/${id}`); }                             | [HttpDelete("{id}")] public async Task<IActionResult> DeletePerson(int id) { var success = await _service.DeleteAsync(id); if (!success) return NotFound(); return NoContent(); }                                                           | public async Task<bool> DeleteAsync(int id) { var person = await _repository.GetByIdAsync(id); if (person == null) return false; _repository.Delete(person); await _repository.SaveChangesAsync(); return true; }                             | public void Delete(Person person) { _context.Persons.Remove(person); }                                |
-
----
-## Mapping til service
-```
-using NewModel.Dtos;
-using NewModel.Models;
-
-namespace NewModel.Mappings
-{
-    public static class PersonMappingExtensions
-    {
-        public static PersonDto ToDto(this Person person)
-        {
-            return new PersonDto
-            {
-                FirstName = person.FirstName,
-                LastName = person.LastName,
-                Age = person.Age
-            };
-        }
-        public static Person ToEntity(this PersonDto dto)
-        {
-            return new Person
-            {
-                FirstName = dto.FirstName,
-                LastName = dto.LastName,
-                Age = dto.Age
-            };
-        }
-        public static void UpdateFromDto(this Person person, PersonDto dto)
-        {
-            person.FirstName = dto.FirstName;
-            person.LastName = dto.LastName;
-            person.Age = dto.Age;
-        }
-
-        public static IEnumerable<PersonDto> ToDto(this IEnumerable<Person> persons)
-        {
-            return persons.Select(p => p.ToDto());
-        }
-    }
-}
+| APP-Service (Angular)                                                                                                       | API-Controller (C#)                                                                                                                                                                                                                            | API-Service (C#) (DTO’er uden mapping)                                                                                                                                                                                                                                                                                                                                                                               | Repository (C#)                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| getAll(): Observable<Person[]> { return this.http.get<Person[]>(this.apiUrl); }                                             | [HttpGet] public async Task<ActionResult<IEnumerable<PersonDto>>> GetPerson() { var people = await _service.GetAllAsync(); return Ok(people); }                                                                                                | public async Task<IEnumerable<PersonDto>> GetAllAsync() { var persons = await _repository.GetAllAsync(); return persons.Select(p => new PersonDto { FirstName = p.FirstName, LastName = p.LastName, Age = p.Age }); }                                                                                                                                                                                                | public async Task<IEnumerable<Person>> GetAllAsync() { return await _context.Persons.ToListAsync(); } |
+| getById(id: number): Observable<Person> { return this.http.get<Person>(`${this.apiUrl}/${id}`); }                           | [HttpGet("{id}")] public async Task<ActionResult<PersonDto>> GetPerson(int id) { var person = await _service.GetByIdAsync(id); if (person == null) return NotFound(); return Ok(person); }                                                     | public async Task<PersonDto> GetByIdAsync(int id) { var person = await _repository.GetByIdAsync(id); if (person == null) return null; return new PersonDto { FirstName = person.FirstName, LastName = person.LastName, Age = person.Age }; }                                                                                                                                                                         | public Task<Person> GetByIdAsync(int id) { return _context.Persons.FindAsync(id).AsTask(); }          |
+| create(person: PersonDto): Observable<Person> { return this.http.post<Person>(this.apiUrl, person); }                       | [HttpPost] public async Task<ActionResult<PersonDto>> PostPerson(PersonDto personDto) { var createdPerson = await _service.CreateAsync(personDto); return Ok(createdPerson); }                                                                 | public async Task<PersonDto> CreateAsync(PersonDto dto) { var person = new Person { FirstName = dto.FirstName, LastName = dto.LastName, Age = dto.Age }; await _repository.AddAsync(person); await _repository.SaveChangesAsync(); return new PersonDto { FirstName = person.FirstName, LastName = person.LastName, Age = person.Age }; }                                                                            | public Task AddAsync(Person person) { return _context.Persons.AddAsync(person).AsTask(); }            |
+| update(id: number, person: PersonDto): Observable<Person> { return this.http.put<Person>(`${this.apiUrl}/${id}`, person); } | [HttpPut("{id}")] public async Task<ActionResult<PersonDto>> PutPerson(int id, PersonDto personDto) { var updatedPerson = await _service.UpdateAsync(id, personDto); if (updatedPerson == null) return NotFound(); return Ok(updatedPerson); } | public async Task<PersonDto> UpdateAsync(int id, PersonDto dto) { var person = await _repository.GetByIdAsync(id); if (person == null) return null; person.FirstName = dto.FirstName; person.LastName = dto.LastName; person.Age = dto.Age; _repository.Update(person); await _repository.SaveChangesAsync(); return new PersonDto { FirstName = person.FirstName, LastName = person.LastName, Age = person.Age }; } | public void Update(Person person) { _context.Persons.Update(person); }                                |
+| delete(id: number): Observable<void> { return this.http.delete<void>(`${this.apiUrl}/${id}`); }                             | [HttpDelete("{id}")] public async Task<IActionResult> DeletePerson(int id) { var success = await _service.DeleteAsync(id); if (!success) return NotFound(); return NoContent(); }                                                              | public async Task<bool> DeleteAsync(int id) { var person = await _repository.GetByIdAsync(id); if (person == null) return false; _repository.Delete(person); await _repository.SaveChangesAsync(); return true; }                                                                                                                                                                                                    | public void Delete(Person person) { _context.Persons.Remove(person); }                                |
 ```
 
 
