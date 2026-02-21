@@ -2,17 +2,86 @@ Her er de sat op side-by-side, så du tydeligt kan se mappingen mellem din C# AP
 
 ---
 
-## 🔁 API ↔ Angular mapping
+## API ↔ Angular mapping
 
-| C# ASP.NET Core API (PeopleController)                                                                                                                                                                                                                                                                                          | Angular TypeScript (PeopleService)                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `csharp<br>// GET: api/People<br>[HttpGet]<br>public async Task<ActionResult<IEnumerable<Person>>> GetPerson()<br>{<br>    var adults = await _service.FilterAsync(p => p.FirstName == "Christian");<br>    return Ok(adults);<br>}<br>`                                                                                        | `ts<br>// GET: api/People<br>getAll(): Observable<Person[]> {<br>  return this.http.get<Person[]>(this.apiUrl);<br>}<br>`                                                    |
-| `csharp<br>// GET: api/People/5<br>[HttpGet("{id}")]<br>public async Task<ActionResult<Person>> GetPerson(int id)<br>{<br>    var person = await _service.GetByIdAsync(id);<br>    if (person == null)<br>        return NotFound();<br>    return Ok(person);<br>}<br>`                                                        | ``ts<br>// GET: api/People/{id}<br>getById(id: number): Observable<Person> {<br>  return this.http.get<Person>(`${this.apiUrl}/${id}`);<br>}<br>``                           |
-| `csharp<br>// POST: api/People<br>[HttpPost]<br>public async Task<ActionResult<Person>> PostPerson(PersonDto personDto)<br>{<br>    var createdPerson = await _service.CreateAsync(personDto);<br>    return Ok(createdPerson);<br>}<br>`                                                                                       | `ts<br>// POST: api/People<br>create(person: PersonDto): Observable<Person> {<br>  return this.http.post<Person>(this.apiUrl, person);<br>}<br>`                             |
-| `csharp<br>// PUT: api/People/{id}<br>[HttpPut("{id}")]<br>public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto)<br>{<br>    var updatedPerson = await _service.UpdateAsync(id, personDto);<br>    if (updatedPerson == null)<br>        return NotFound();<br>    return Ok(updatedPerson);<br>}<br>` | ``ts<br>// PUT: api/People/{id}<br>update(id: number, person: PersonDto): Observable<Person> {<br>  return this.http.put<Person>(`${this.apiUrl}/${id}`, person);<br>}<br>`` |
-| `csharp<br>// DELETE: api/People/{id}<br>[HttpDelete("{id}")]<br>public async Task<IActionResult> DeletePerson(int id)<br>{<br>    var success = await _service.DeleteAsync(id);<br>    if (!success)<br>        return NotFound();<br>    return NoContent();<br>}<br>`                                                        | ``ts<br>// DELETE: api/People/{id}<br>delete(id: number): Observable<void> {<br>  return this.http.delete<void>(`${this.apiUrl}/${id}`);<br>}<br>``                          |
-
----
+| C# ASP.NET Core API (PeopleController) | Angular TypeScript (PeopleService) |
+|----------------------------------------|-------------------------------------|
+| ```csharp
+// GET: api/People
+[HttpGet]
+public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
+{
+    var adults = await _service.FilterAsync(p => p.FirstName == "Christian");
+    return Ok(adults);
+}
+``` | ```ts
+// GET: api/People
+getAll(): Observable<Person[]> {
+  return this.http.get<Person[]>(this.apiUrl);
+}
+``` |
+| ```csharp
+// GET: api/People/5
+[HttpGet("{id}")]
+public async Task<ActionResult<Person>> GetPerson(int id)
+{
+    var person = await _service.GetByIdAsync(id);
+    if (person == null)
+        return NotFound();
+    return Ok(person);
+}
+``` | ```ts
+// GET: api/People/{id}
+getById(id: number): Observable<Person> {
+  return this.http.get<Person>(`${this.apiUrl}/${id}`);
+}
+``` |
+| ```csharp
+// POST: api/People
+[HttpPost]
+public async Task<ActionResult<Person>> PostPerson(PersonDto personDto)
+{
+    var createdPerson = await _service.CreateAsync(personDto);
+    return Ok(createdPerson);
+}
+``` | ```ts
+// POST: api/People
+create(person: PersonDto): Observable<Person> {
+  return this.http.post<Person>(this.apiUrl, person);
+}
+``` |
+| ```csharp
+// PUT: api/People/{id}
+[HttpPut("{id}")]
+public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto)
+{
+    var updatedPerson = await _service.UpdateAsync(id, personDto);
+    if (updatedPerson == null)
+        return NotFound();
+    return Ok(updatedPerson);
+}
+``` | ```ts
+// PUT: api/People/{id}
+update(id: number, person: PersonDto): Observable<Person> {
+  return this.http.put<Person>(`${this.apiUrl}/${id}`, person);
+}
+``` |
+| ```csharp
+// DELETE: api/People/{id}
+[HttpDelete("{id}")]
+public async Task<IActionResult> DeletePerson(int id)
+{
+    var success = await _service.DeleteAsync(id);
+    if (!success)
+        return NotFound();
+    return NoContent();
+}
+``` | ```ts
+// DELETE: api/People/{id}
+delete(id: number): Observable<void> {
+  return this.http.delete<void>(`${this.apiUrl}/${id}`);
+}
+``` |
 
 ## 📌 Kort fortalt
 
