@@ -20,25 +20,23 @@ Ah, nu forstår jeg fuldt ud – du vil have **ren tekstversion af tabellen**, u
 
 ---
 
-Hvis du vil, kan jeg lave **en version med pænere indrykning**, hvor hver metode står på flere linjer i tabellen, så den bliver **meget lettere at læse**.
 
-Vil du have, jeg gør det?
+Perfekt! Nu kan vi lave en **fuld tabel med fire kolonner**, som viser hele flowet:
 
----
-
-Denne version er **let at læse**, og den kan direkte kopieres ind i Markdown, Word eller anden dokumentation.
-
-Hvis du vil, kan jeg også lave **en version uden tabelformat**, men stadig med pæn blokstruktur, så du kan bruge den i kode- eller README-filer.
-
-Vil du have, jeg laver den?
+**Controller → Service → Repository → Angular Service**. Jeg laver en **ren tekstversion** uden kommentarer eller HTML-tags, så den er klar til dokumentation:
 
 ---
 
-Denne version kan du **direkte kopiere ind i Markdown eller Word**, og den viser tydeligt **C# API-metode → Angular service-metode**.
+| API-Controller (C#)                                                                                                                                                                                                                         | API-Service (C#)                                                                                                                                                                                                                              | Repository (C#)                                                                                       | APP-Service (Angular)                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| [HttpGet] public async Task<ActionResult<IEnumerable<Person>>> GetPerson() { var people = await _service.FilterAsync(p => p.FirstName == "Christian"); return Ok(adults); }                                                                 | public async Task<IEnumerable<PersonDto>> GetAllAsync() { var persons = await _repository.GetAllAsync(); return persons.ToDto(); }                                                                                                            | public async Task<IEnumerable<Person>> GetAllAsync() { return await _context.Persons.ToListAsync(); } | getAll(): Observable<Person[]> { return this.http.get<Person[]>(this.apiUrl); }                                             |
+| [HttpGet("{id}")] public async Task<ActionResult<Person>> GetPerson(int id) { var person = await _service.GetByIdAsync(id); if (person == null) return NotFound(); return Ok(person); }                                                     | public async Task<PersonDto> GetByIdAsync(int id) { var person = await _repository.GetByIdAsync(id); if (person == null) return null; return person.ToDto(); }                                                                                | public Task<Person> GetByIdAsync(int id) { return _context.Persons.FindAsync(id).AsTask(); }          | getById(id: number): Observable<Person> { return this.http.get<Person>(`${this.apiUrl}/${id}`); }                           |
+| [HttpPost] public async Task<ActionResult<Person>> PostPerson(PersonDto personDto) { var createdPerson = await _service.CreateAsync(personDto); return Ok(createdPerson); }                                                                 | public async Task<PersonDto> CreateAsync(PersonDto dto) { var person = dto.ToEntity(); await _repository.AddAsync(person); await _repository.SaveChangesAsync(); return person.ToDto(); }                                                     | public Task AddAsync(Person person) { return _context.Persons.AddAsync(person).AsTask(); }            | create(person: PersonDto): Observable<Person> { return this.http.post<Person>(this.apiUrl, person); }                       |
+| [HttpPut("{id}")] public async Task<ActionResult<Person>> PutPerson(int id, PersonDto personDto) { var updatedPerson = await _service.UpdateAsync(id, personDto); if (updatedPerson == null) return NotFound(); return Ok(updatedPerson); } | public async Task<PersonDto> UpdateAsync(int id, PersonDto dto) { var person = await _repository.GetByIdAsync(id); if (person == null) return null; person.UpdateFromDto(dto); await _repository.SaveChangesAsync(); return person.ToDto(); } | public void Update(Person person) { _context.Persons.Update(person); }                                | update(id: number, person: PersonDto): Observable<Person> { return this.http.put<Person>(`${this.apiUrl}/${id}`, person); } |
+| [HttpDelete("{id}")] public async Task<IActionResult> DeletePerson(int id) { var success = await _service.DeleteAsync(id); if (!success) return NotFound(); return NoContent(); }                                                           | public async Task<bool> DeleteAsync(int id) { var person = await _repository.GetByIdAsync(id); if (person == null) return false; _repository.Delete(person); await _repository.SaveChangesAsync(); return true; }                             | public void Delete(Person person) { _context.Persons.Remove(person); }                                | delete(id: number): Observable<void> { return this.http.delete<void>(`${this.apiUrl}/${id}`); }                             |
 
-Hvis du vil, kan jeg lave en **endnu pænere version**, hvor hver metode står **i blokke med korrekt indrykning**, så den ser ud som kodeblokke i tabellen.
+---
 
-Vil du have, jeg gør det?
 
 
 ## 📌 Kort fortalt
