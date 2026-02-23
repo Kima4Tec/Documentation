@@ -41,7 +41,7 @@ Gem FTP credentials som GitHub Secrets.
 
 - Gå ind på dit repository på GitHub 
 - Klik på Settings
-- 
+
 #### I venstre menu: 
 - Klik Secrets and variables
 - Klik Actions
