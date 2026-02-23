@@ -2,6 +2,7 @@
 
 ## Github actions
 
+### API
 Lav en yaml fil fx. .github/workflows/deploy.yml
 Filen kan se sådan ud:
 ```
@@ -53,3 +54,44 @@ Gem FTP credentials som GitHub Secrets.
 | `FTP_SERVER`   | ftp.ditdomæne.dk |
 | `FTP_USERNAME` | ditbrugernavn    |
 | `FTP_PASSWORD` | ditkodeord       |
+
+
+### Angular App
+```
+name: Deploy Angular App via FTP
+
+on:
+  push:
+    branches:
+      - main  # eller master, alt efter dit repo
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1️⃣ Tjek koden ud
+    - uses: actions/checkout@v3
+
+    # 2️⃣ Setup Node.js
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '20' # eller versionen du bruger
+
+    # 3️⃣ Installer dependencies
+    - run: npm install
+
+    # 4️⃣ Build Angular til production
+    - run: npm run build -- --prod
+      # output ligger typisk i dist/<project-name>
+
+    # 5️⃣ Deploy via FTP
+    - name: Deploy via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist/my-angular-app/  # <--- skift til din Angular dist mappe
+        server-dir: /public_html/          # <--- hvor filerne skal ligge på serveren
+```
