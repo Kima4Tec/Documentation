@@ -40,3 +40,21 @@ hostname -I
 ```
 http://192.168.1.123:9000
 ```
+
+
+## Api forbindelse
+Lav ny migration, hvis der er en MS Sql i forvejen, så slet den.
+Opdater database.
+Lav connectionstring.
+### ConnectionString
+```
+"DefaultConnection": "Host=10.0.1.5;Port=5432;Database=replace;Username=admin;Password=ThePassw0rd"
+```
+*Host=serverens ip-adresse; Port=porten, hvor postgres ligger; Database: Databasens navn; Username og Password giver sig selv.*
+
+### I program.cs
+```
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+```
+
