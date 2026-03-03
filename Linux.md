@@ -58,3 +58,7 @@ Lav connectionstring.
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 ```
 
+
+## Nginx
+https://share.google/aimode/GOcsLgLiS16mwSVQC
+
