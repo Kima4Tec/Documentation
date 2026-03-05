@@ -418,4 +418,273 @@ Så er dit API **meget sværere at angribe**.
 
 ---
 
+Det du leder efter er **rate limiting** i ASP.NET Core.
+Det stopper brute-force, bots og API-spam med meget lidt kode.
+
+Siden .NET 7 er det **indbygget**, så du behøver ingen ekstra pakker.
+
+---
+
+# 🔐 Sådan gør du dit API svært at brute-force
+
+## 1️⃣ Tilføj Rate Limiter i `Program.cs`
+
+```csharp
+using System.Threading.RateLimiting;
+
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddFixedWindowLimiter("api", opt =>
+    {
+        opt.PermitLimit = 60;                 // max 60 requests
+        opt.Window = TimeSpan.FromMinutes(1); // pr minut
+        opt.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        opt.QueueLimit = 5;
+    });
+});
+```
+
+---
+
+## 2️⃣ Aktivér middleware
+
+Efter `builder.Build()`:
+
+```csharp
+app.UseRateLimiter();
+```
+
+---
+
+## 3️⃣ Brug limiteren på controllers
+
+```csharp
+[EnableRateLimiting("api")]
+[ApiController]
+[Route("api/[controller]")]
+public class PersonController : ControllerBase
+{
+}
+```
+
+---
+
+# 🎯 Hvad det gør
+
+Hvis en bot sender:
+
+```
+1000 requests / minut
+```
+
+så får den:
+
+```
+429 Too Many Requests
+```
+
+Dit API fortsætter normalt for rigtige brugere.
+
+---
+
+# 🔒 Ekstra smart: Streng limiter på login
+
+Login endpoints bliver ofte brute-forced.
+
+```csharp
+options.AddFixedWindowLimiter("login", opt =>
+{
+    opt.PermitLimit = 5;
+    opt.Window = TimeSpan.FromMinutes(1);
+});
+```
+
+Controller:
+
+```csharp
+[EnableRateLimiting("login")]
+```
+
+Så kan man kun prøve login **5 gange pr minut**.
+
+---
+
+# 🧠 Professionelle APIs kombinerer typisk
+
+✔ JWT authentication
+✔ Rate limiting
+✔ Input validation
+✔ Logging
+✔ Security headers
+
+Så er API’et ret robust.
+
+---
+Super — her er **3 værktøjer du kan bruge til at teste dit eget API for sikkerhedshuller**. Mange udviklere bruger dem før de går i production. 🔎
+
+---
+
+# 1️⃣ Test for SQL Injection og API-fejl
+
+Det nemmeste er stadig **Postman**.
+
+Prøv at sende “ondsindet” input i dine endpoints.
+
+### Eksempel
+
+Hvis du har:
+
+```
+POST /api/person
+```
+
+Send:
+
+```json
+{
+ "name": "' OR 1=1 --"
+}
+```
+
+eller:
+
+```json
+{
+ "name": "<script>alert('xss')</script>"
+}
+```
+
+Hvis dit API:
+
+* crasher
+* returnerer SQL fejl
+* accepterer mærkelig data
+
+så har du et problem.
+
+Hvis det bare gemmer teksten eller returnerer validation-fejl → godt 👍
+
+---
+
+# 2️⃣ Automatisk sikkerhedsscanning
+
+Et rigtig godt gratis værktøj er
+**OWASP ZAP**.
+
+Det kan:
+
+* scanne hele dit API
+* teste SQL injection
+* teste XSS
+* teste header sikkerhed
+* teste authentication
+
+Sådan bruges det:
+
+1. Start programmet
+2. Indtast din API URL
+
+```
+https://ditdomæne.dk/api
+```
+
+3. Start **Automated Scan**
+
+Den finder typisk:
+
+* manglende headers
+* åbne endpoints
+* input problemer
+
+Det bruges faktisk meget i sikkerhedstests.
+
+---
+
+# 3️⃣ Test load og brute-force
+
+Et simpelt værktøj til at teste hvor mange requests dit API kan håndtere er:
+
+**k6**
+
+Eksempel test:
+
+```javascript
+import http from 'k6/http';
+
+export default function () {
+  http.get('https://ditapi.dk/api/person');
+}
+```
+
+Det kan simulere:
+
+* 100 brugere
+* 1000 requests
+* brute force
+
+Så kan du se om rate limiting virker.
+
+---
+
+# 🔎 Ting du selv bør teste
+
+### 1. Uden API key
+
+```
+POST /api/person
+```
+
+Skal returnere:
+
+```
+401 Unauthorized
+```
+
+---
+
+### 2. Forkert JSON
+
+Send:
+
+```json
+{
+ "name": 12345
+}
+```
+
+Skal give:
+
+```
+400 Bad Request
+```
+
+---
+
+### 3. Meget lang tekst
+
+Send:
+
+```
+name = 10000 tegn
+```
+
+Skal afvises hvis du har `[MaxLength]`.
+
+---
+
+# 🧠 En meget vigtig test
+
+Prøv også at kalde endpoints **uden browser eller frontend**.
+
+Fx direkte:
+
+```
+https://ditapi.dk/api/person
+```
+
+Bots gør præcis det samme.
+
+---
+
+
 
