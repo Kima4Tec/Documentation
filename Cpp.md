@@ -5,7 +5,9 @@
 [Include](#Include)   
 [Namespace](#Namespace)  
 [Metoder](#Metoder)  
-[Pointers](#Pointers)
+[Pointers](#Pointers)  
+[Loops](#Loops)  
+[Betingelser](#Betingelser)
 
 
 
@@ -416,9 +418,196 @@ Bruges til:
 
 
 ## Namespaces
-####  std
+I **C++** bruges **namespaces** til at organisere kode og undgå navnekonflikter. Det mest kendte er **`std`**, men der findes flere i standardbiblioteket og i praksis.
+
+Her er nogle af de **mest brugte namespaces**.
+
+---
+
+# 1. `std` (Standard Library)
+
+Det **klart mest brugte namespace**.
+
+Det indeholder næsten hele standardbiblioteket.
+
+Eksempler:
+
+```cpp
+std::cout
+std::cin
+std::string
+std::vector
+std::sort
+```
+
+Eksempel:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Hello" << std::endl;
+}
+```
+
+Man skriver ofte:
+
+```cpp
+using namespace std;
+```
+
+så man kan skrive:
+
+```cpp
+cout << "Hello";
+```
+
+---
+
+# 2. `std::chrono`
+
+Bruges til **tid og målinger**.
+
+```cpp
+#include <chrono>
+```
+
+Eksempel:
+
+```cpp
+std::chrono::system_clock
+std::chrono::milliseconds
+```
+
+---
+
+# 3. `std::filesystem`
+
+Bruges til **arbejde med filer og mapper**.
+
+```cpp
+#include <filesystem>
+```
+
+Eksempel:
+
+```cpp
+std::filesystem::path
+std::filesystem::exists()
+```
+
+---
+
+# 4. `std::this_thread`
+
+Bruges til **multithreading**.
+
+```cpp
+#include <thread>
+```
+
+Eksempel:
+
+```cpp
+std::this_thread::sleep_for()
+```
+
+---
+
+# 5. `std::ranges` (moderne C++)
+
+Bruges til **algoritmer og collections**.
+
+```cpp
+#include <ranges>
+```
+
+Eksempel:
+
+```cpp
+std::ranges::sort()
+```
+
+---
+
+# 6. `std::literals`
+
+Bruges til **string literals og tidsenheder**.
+
+```cpp
+using namespace std::literals;
+```
+
+Eksempel:
+
+```cpp
+auto text = "hello"s;   // string literal
+```
+
+---
+
+# 7. `std::placeholders`
+
+Bruges til **function binding**.
+
+```cpp
+using namespace std::placeholders;
+```
+
+Eksempel:
+
+```cpp
+std::bind(func, _1, 5);
+```
+
+---
+
+# Oversigt
+
+| Namespace           | Brug               |
+| ------------------- | ------------------ |
+| `std`               | standardbibliotek  |
+| `std::chrono`       | tid                |
+| `std::filesystem`   | filer              |
+| `std::this_thread`  | threads            |
+| `std::ranges`       | moderne algoritmer |
+| `std::literals`     | literals           |
+| `std::placeholders` | funktion binding   |
+
+---
+
+✅ **I 90% af programmer bruger man kun:**
+
+```cpp
+using namespace std;
+```
+
+---
+
+💡 Et **meget vigtigt eksamenstip**:
+Mange lærere foretrækker faktisk at man skriver:
+
+```cpp
+std::cout
+std::string
+std::vector
+```
+
+i stedet for:
+
+```cpp
+using namespace std;
+```
+---
+
 
 ## Metoder
 ### cout
+
+## Pointers
+
+## Loops
+
+## Betingelser
 
 
