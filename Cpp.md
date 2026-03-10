@@ -7,7 +7,8 @@
 [Funktioner](#Funktioner)  
 [Pointers](#Pointers)  
 [Loops](#Loops)  
-[Betingelser](#Betingelser)
+[Betingelser](#Betingelser)  
+[Lister](#Lister)  
 
 
 
@@ -781,11 +782,6 @@ sqrt, pow, abs
 
 ---
 
-# Funktioner Cheatsheet
-Perfekt! Her er en **kompakt C++ cheatsheet med ca. 50 mest brugte funktioner og kommandoer**, opdelt efter kategori. Den dækker **input/output, strings, vektorer, algoritmer, matematik, filer og tid**, så du hurtigt kan referere til den til eksamen eller små projekter.
-
----
-
 # **C++ Cheatsheet – de mest brugte funktioner**
 
 ---
@@ -1171,7 +1167,582 @@ int main() {
 
 
 ## Loops
+Selvfølgelig! **Loops** (løkker) i **C++** bruges til at gentage kode flere gange. Der findes flere typer, hver med sit formål. Jeg forklarer dem med eksempler.
+
+---
+
+# 1. `for` loop
+
+Bruges, når du **ved på forhånd hvor mange gange** koden skal køre.
+
+### Syntax
+
+```cpp id="for1"
+for(initialisering; betingelse; opdatering) {
+    // kode
+}
+```
+
+### Eksempel
+
+```cpp id="for2"
+#include <iostream>
+using namespace std;
+
+int main() {
+    for(int i = 0; i < 5; i++) {
+        cout << "i = " << i << endl;
+    }
+}
+```
+
+**Output:**
+
+```
+i = 0
+i = 1
+i = 2
+i = 3
+i = 4
+```
+
+---
+
+# 2. `while` loop
+
+Bruges, når du **ikke kender antal gentagelser på forhånd**, men vil fortsætte så længe en betingelse er sand.
+
+### Syntax
+
+```cpp id="while1"
+while(betingelse) {
+    // kode
+}
+```
+
+### Eksempel
+
+```cpp id="while2"
+int x = 0;
+while(x < 5) {
+    cout << x << " ";
+    x++;
+}
+```
+
+Output: `0 1 2 3 4`
+
+---
+
+# 3. `do-while` loop
+
+Ligner `while`, men **koden kører mindst én gang**, fordi betingelsen tjekkes **efter**.
+
+### Syntax
+
+```cpp id="dowhile1"
+do {
+    // kode
+} while(betingelse);
+```
+
+### Eksempel
+
+```cpp id="dowhile2"
+int x = 0;
+do {
+    cout << x << " ";
+    x++;
+} while(x < 5);
+```
+
+Output: `0 1 2 3 4`
+
+---
+
+# 4. Range-based `for` loop (C++11+)
+
+Bruges til **arrays og containers** (f.eks. vektorer). Meget praktisk.
+
+### Syntax
+
+```cpp id="rangefor1"
+for(type var : container) {
+    // kode
+}
+```
+
+### Eksempel
+
+```cpp id="rangefor2"
+#include <vector>
+#include <iostream>
+using namespace std;
+
+vector<int> nums = {1,2,3,4,5};
+
+for(int n : nums) {
+    cout << n << " ";
+}
+```
+
+Output: `1 2 3 4 5`
+
+---
+
+# 5. Kontrol med `break` og `continue`
+
+* `break` → afbryder loop helt
+* `continue` → hopper til næste iteration
+
+### Eksempel `break`
+
+```cpp id="break1"
+for(int i=0;i<10;i++) {
+    if(i==5) break;
+    cout << i << " ";
+}
+```
+
+Output: `0 1 2 3 4`
+
+### Eksempel `continue`
+
+```cpp id="continue1"
+for(int i=0;i<5;i++) {
+    if(i==2) continue;
+    cout << i << " ";
+}
+```
+
+Output: `0 1 3 4` (springer 2 over)
+
+---
+
+# 6. Nested loops (indlejrede løkker)
+
+Du kan have loops **inde i loops**:
+
+```cpp id="nested1"
+for(int i=1;i<=3;i++) {
+    for(int j=1;j<=2;j++) {
+        cout << "(" << i << "," << j << ") ";
+    }
+}
+```
+
+Output: `(1,1) (1,2) (2,1) (2,2) (3,1) (3,2)`
+
+---
+
+# 7. Tips og gode vaner
+
+1. **Vær opmærksom på uendelige loops**:
+
+   ```cpp id="infloop1"
+   while(true) {
+       // husk break ellers kører evigt
+   }
+   ```
+
+2. **Range-based for** er sikrest til arrays og vektorer.
+
+3. Brug `break`/`continue` med omtanke – kan gøre koden svær at læse.
+
+4. Brug loops sammen med **pointere, arrays og vektorer** for effektiv databehandling.
+
+---
+
+💡 **Hurtig huskeregel:**
+
+| Loop type         | Hvornår bruges det                   |
+| ----------------- | ------------------------------------ |
+| `for`             | Kendt antal gentagelser              |
+| `while`           | Ukendt antal, afhænger af betingelse |
+| `do-while`        | Mindst én iteration                  |
+| range-based `for` | Iteration over array/container       |
+
+---
+
+
+
 
 ## Betingelser
+Selvfølgelig! **Betingelser** (conditional statements) i **C++** bruges til at styre, hvilken kode der skal køres afhængigt af en logisk test (true/false).
+
+Her er en grundig gennemgang med eksempler:
+
+---
+
+# 1. `if` statement
+
+Kører kode **hvis betingelsen er sand**.
+
+### Syntax
+
+```cpp id="if1"
+if (betingelse) {
+    // kode
+}
+```
+
+### Eksempel
+
+```cpp id="if2"
+#include <iostream>
+using namespace std;
+
+int x = 10;
+
+if (x > 5) {
+    cout << "x er større end 5" << endl;
+}
+```
+
+Output:
+
+```
+x er større end 5
+```
+
+---
+
+# 2. `if-else` statement
+
+Kører **én kodeblok hvis sand**, **anden kodeblok hvis falsk**.
+
+```cpp id="ifelse1"
+if (x > 5) {
+    cout << "x > 5" << endl;
+} else {
+    cout << "x <= 5" << endl;
+}
+```
+
+---
+
+# 3. `else if` statement
+
+Bruges når der er **flere betingelser**.
+
+```cpp id="elseif1"
+int score = 75;
+
+if (score >= 90) {
+    cout << "A";
+} else if (score >= 80) {
+    cout << "B";
+} else if (score >= 70) {
+    cout << "C";
+} else {
+    cout << "F";
+}
+```
+
+Output: `C`
+
+---
+
+# 4. Ternary operator (`? :`)
+
+Kort form for `if-else` til **én linje**.
+
+```cpp id="ternary1"
+int x = 10;
+string result = (x > 5) ? "større" : "mindre eller lig";
+cout << result << endl;
+```
+
+Output: `større`
+
+---
+
+# 5. Switch statement
+
+Bruges når du vil teste en **variabel mod flere konstante værdier**.
+
+```cpp id="switch1"
+char grade = 'B';
+
+switch(grade) {
+    case 'A':
+        cout << "Perfekt!";
+        break;
+    case 'B':
+        cout << "Godt!";
+        break;
+    case 'C':
+        cout << "Middel";
+        break;
+    default:
+        cout << "Ukendt karakter";
+}
+```
+
+Output: `Godt!`
+
+* `break` stopper switch-blokken efter match.
+* `default` kører hvis ingen case matcher.
+
+---
+
+# 6. Logiske operatorer
+
+Du kan kombinere betingelser med:
+
+| Operator | Beskrivelse |   |           |
+| -------- | ----------- | - | --------- |
+| `&&`     | Logisk AND  |   |           |
+| `        |             | ` | Logisk OR |
+| `!`      | Logisk NOT  |   |           |
+
+### Eksempel
+
+```cpp id="logic1"
+int x = 10, y = 5;
+
+if (x > 0 && y > 0) {
+    cout << "Begge er positive";
+}
+
+if (x < 0 || y < 0) {
+    cout << "Mindst én er negativ";
+}
+```
+
+---
+
+# 7. Sammenligningsoperatorer
+
+| Operator | Beskrivelse          |
+| -------- | -------------------- |
+| `==`     | Lige med             |
+| `!=`     | Ikke lig med         |
+| `>`      | Større end           |
+| `<`      | Mindre end           |
+| `>=`     | Større eller lig med |
+| `<=`     | Mindre eller lig med |
+
+### Eksempel
+
+```cpp id="comp1"
+int a = 5;
+int b = 10;
+
+if (a != b) cout << "a er ikke lig b";
+```
+
+---
+
+# 8. Tips og gode vaner
+
+1. Husk **parenteser omkring betingelsen**:
+
+   ```cpp id="tip1"
+   if ((x > 0) && (y < 10)) { ... }
+   ```
+
+2. Brug `else if` frem for flere `if`, når betingelserne er **gensidigt udelukkende**.
+
+3. Ternary operator (`? :`) er godt til små valg, men **brug ikke til kompleks logik**.
+
+4. Switch er ideel til **valg mellem flere konstante muligheder**, især med **int, char eller enum**.
+
+---
+
+💡 **Kort opsummering:**
+
+| Betingelse    | Brug              |
+| ------------- | ----------------- |
+| `if`          | Én betingelse     |
+| `if-else`     | To muligheder     |
+| `else if`     | Flere muligheder  |
+| Ternary `? :` | Kort if-else      |
+| `switch`      | Flere faste cases |
+
+---
+
+# Lister
+
+---
+
+# **1. Arrays**
+
+Et **array** er en samling af elementer af samme type, med **fast størrelse**.
+
+### Syntax
+
+```cpp id="arr1"
+type navn[size];
+```
+
+### Eksempel
+
+```cpp id="arr2"
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numbers[5] = {1, 2, 3, 4, 5};
+
+    // adgang til elementer
+    cout << numbers[0] << endl; // 1
+    cout << numbers[4] << endl; // 5
+
+    // loop gennem array
+    for(int i = 0; i < 5; i++) {
+        cout << numbers[i] << " ";
+    }
+}
+```
+
+**Output:** `1 2 3 4 5`
+
+---
+
+### Nøglepunkter om arrays
+
+* **Fast størrelse** – kan ikke ændres efter deklaration.
+* Index starter fra **0**.
+* Kan bruges med **pointere**: `int* p = numbers;`
+* Kan laves multidimensionelle arrays:
+
+```cpp id="arr3"
+int matrix[2][3] = {{1,2,3},{4,5,6}};
+cout << matrix[1][2]; // 6
+```
+
+---
+
+# **2. Vectors (`std::vector`)**
+
+En **vector** er en dynamisk array fra standardbiblioteket. Den kan **vokse og skrumpe** efter behov.
+
+```cpp id="vec1"
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> nums = {1, 2, 3};
+
+    // tilføj element
+    nums.push_back(4);
+
+    // adgang til elementer
+    cout << nums[0] << endl; // 1
+
+    // size()
+    cout << "Vector size: " << nums.size() << endl;
+
+    // loop gennem vector
+    for(int n : nums) {
+        cout << n << " ";
+    }
+}
+```
+
+**Output:** `1 2 3 4`
+`Vector size: 4`
+
+---
+
+### Nøglepunkter om vectors
+
+* Dynamisk størrelse – kan tilføje/fjerne elementer.
+* Brug `.push_back()` til at tilføje.
+* Brug `.size()` til at få antal elementer.
+* Brug `.at(index)` for sikker adgang (kaster fejl hvis index er udenfor).
+* Kan bruges med **range-based for loops**.
+
+---
+
+# **3. Lists (`std::list`)**
+
+En **list** er en **dobbelt-linked liste**.
+
+* Hurtig indsættelse og sletning midt i listen.
+* Ikke så effektiv til **tilfældig adgang** (ikke index-baseret).
+
+```cpp id="list1"
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main() {
+    list<int> l = {1,2,3};
+
+    l.push_back(4); // tilføj til slut
+    l.push_front(0); // tilføj foran
+
+    for(int n : l) cout << n << " ";
+}
+```
+
+**Output:** `0 1 2 3 4`
+
+---
+
+### Nøglepunkter om lists
+
+* Kan tilføje/fjerne elementer hvor som helst.
+* Ingen `operator[]` – skal bruge iteratorer for tilfældig adgang.
+* Mindre effektiv end vector, hvis du primært bruger **indexing**.
+
+---
+
+# **4. Sammenligning: Array vs Vector vs List**
+
+| Feature            | Array             | Vector        | List                 |
+| ------------------ | ----------------- | ------------- | -------------------- |
+| Dynamisk størrelse | ❌                 | ✅             | ✅                    |
+| Tilfældig adgang   | ✅                 | ✅             | ❌                    |
+| Indsæt/slet midt   | ❌                 | ❌ (dyrt)      | ✅ (hurtigt)          |
+| Hukommelse         | Kontinuerlig      | Kontinuerlig  | Ikke kontinuerlig    |
+| Brug               | Simpelt, små data | Generelt brug | Når indsæt/slet ofte |
+
+---
+
+# **5. Eksempel på kombineret brug**
+
+```cpp id="combine1"
+#include <iostream>
+#include <vector>
+#include <list>
+using namespace std;
+
+int main() {
+    int arr[3] = {1,2,3};
+    vector<int> vec = {4,5,6};
+    list<int> l = {7,8,9};
+
+    cout << "Array: ";
+    for(int i=0;i<3;i++) cout << arr[i] << " ";
+
+    cout << "\nVector: ";
+    for(int n : vec) cout << n << " ";
+
+    cout << "\nList: ";
+    for(int n : l) cout << n << " ";
+}
+```
+
+**Output:**
+
+```
+Array: 1 2 3 
+Vector: 4 5 6 
+List: 7 8 9
+```
+
+---
+
+💡 **Huskeregel:**
+
+* Brug **array** til faste, små datasæt.
+* Brug **vector** til dynamiske datasæt med tilfældig adgang.
+* Brug **list** til datasæt hvor du ofte indsætter/sletter midt i listen.
+
+---
 
 
