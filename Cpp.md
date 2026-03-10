@@ -2,9 +2,11 @@
 
 ## Indhold
 [Typer](#Typer)
+[Include](#Include)
 
 
 
+## Typer
 
 **1. Primitive typer – int, double, char, bool**  
 **2. Derived typer – pointer, arrays, references**  
@@ -181,10 +183,239 @@ decltype(x) y = 10;
 ---
 ## Include
 
+I **C++** bruger man **`#include`** til at importere funktioner, klasser og biblioteker fra standardbiblioteket eller egne filer.
+
+Her er nogle af de **mest brugte includes**.
+
+---
+
+# 1. Input og output
+
+```cpp
+#include <iostream>
+```
+
+Bruges til **input og output** via:
+
+* `std::cout`
+* `std::cin`
+* `std::endl`
+
+Eksempel:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Hello" << std::endl;
+}
+```
+
+---
+
+# 2. Strings
+
+```cpp
+#include <string>
+```
+
+Bruges til:
+
+* `std::string`
+
+Eksempel:
+
+```cpp
+#include <string>
+
+std::string name = "Peter";
+```
+
+---
+
+# 3. Vektorer (dynamiske arrays)
+
+```cpp
+#include <vector>
+```
+
+Bruges til:
+
+* `std::vector`
+
+Eksempel:
+
+```cpp
+#include <vector>
+
+std::vector<int> numbers = {1,2,3};
+```
+
+---
+
+# 4. Matematik
+
+```cpp
+#include <cmath>
+```
+
+Bruges til funktioner som:
+
+* `sqrt()`
+* `pow()`
+* `sin()`
+* `cos()`
+
+Eksempel:
+
+```cpp
+#include <cmath>
+
+double x = sqrt(25);
+```
+
+---
+
+# 5. Algoritmer
+
+```cpp
+#include <algorithm>
+```
+
+Bruges til funktioner som:
+
+* `sort()`
+* `find()`
+* `max()`
+* `min()`
+
+Eksempel:
+
+```cpp
+#include <algorithm>
+
+sort(v.begin(), v.end());
+```
+
+---
+
+# 6. Input/output med filer
+
+```cpp
+#include <fstream>
+```
+
+Bruges til:
+
+* `ofstream`
+* `ifstream`
+
+Eksempel:
+
+```cpp
+#include <fstream>
+
+std::ofstream file("data.txt");
+```
+
+---
+
+# 7. Tidsfunktioner
+
+```cpp
+#include <ctime>
+```
+
+Bruges til:
+
+* `time()`
+* `clock()`
+
+---
+
+# 8. Containers (datastrukturer)
+
+### Map
+
+```cpp
+#include <map>
+```
+
+### Set
+
+```cpp
+#include <set>
+```
+
+### Stack
+
+```cpp
+#include <stack>
+```
+
+### Queue
+
+```cpp
+#include <queue>
+```
+
+---
+
+# 9. Utility funktioner
+
+```cpp
+#include <utility>
+```
+
+Bruges til:
+
+* `std::pair`
+
+---
+
+# 10. C-style funktioner
+
+```cpp
+#include <cstdlib>
+```
+
+Bruges til:
+
+* `rand()`
+* `exit()`
+
+---
+
+# Typisk “standard start” i mange programmer
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+```
+
+---
+
+✅ **De 5 mest brugte i praksis**
+
+```
+<iostream>
+<string>
+<vector>
+<algorithm>
+<cmath>
+```
+
+---
+
+
+
+
 ## Namespaces
 ####  std
 
 ## Metoder
 ### cout
 
-## Typer
+
