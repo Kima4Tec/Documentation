@@ -417,7 +417,7 @@ Bruges til:
 
 
 
-## Namespaces
+## Namespace
 I **C++** bruges **namespaces** til at organisere kode og undgå navnekonflikter. Det mest kendte er **`std`**, men der findes flere i standardbiblioteket og i praksis.
 
 Her er nogle af de **mest brugte namespaces**.
