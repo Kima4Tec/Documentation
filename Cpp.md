@@ -9,6 +9,8 @@
 [Loops](#Loops)  
 [Betingelser](#Betingelser)  
 [Lister](#Lister)  
+[Map](#Map)  
+[Vector](#Vector)  
 
 # Kodeeksempel på C++
 ```
@@ -1793,6 +1795,355 @@ List: 7 8 9
 * Brug **array** til faste, små datasæt.
 * Brug **vector** til dynamiske datasæt med tilfældig adgang.
 * Brug **list** til datasæt hvor du ofte indsætter/sletter midt i listen.
+
+# Map
+Selvfølgelig! Lad os dykke ned i **`std::map`** i **C++**. Det er en af de mest nyttige containers i C++ til at **gemme nøgle-værdi-par**, som en ordbog eller dictionary.
+
+---
+
+# 1. Hvad er en `map`?
+
+* En **map** gemmer data som **key-value** par.
+* **Keys er unikke**, værdier kan gentages.
+* Automatisk sorteret efter **key** (som standard i stigende rækkefølge).
+* Findes i `<map>` biblioteket.
+
+### Syntax
+
+```cpp id="map1"
+#include <map>
+std::map<KeyType, ValueType> navn;
+```
+
+Eksempel:
+
+```cpp id="map2"
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    map<string, int> ages;
+
+    ages["Alice"] = 25;
+    ages["Bob"] = 30;
+
+    cout << "Alice is " << ages["Alice"] << " years old." << endl;
+}
+```
+
+**Output:**
+
+```
+Alice is 25 years old.
+```
+
+---
+
+# 2. Tilføj elementer
+
+Der er flere måder at tilføje:
+
+```cpp id="map3"
+map<int,string> m;
+
+// 1. Via [] operator
+m[1] = "One";
+
+// 2. Via insert()
+m.insert({2,"Two"});
+m.insert(make_pair(3,"Three"));
+```
+
+---
+
+# 3. Adgang til elementer
+
+```cpp id="map4"
+cout << m[2];  // "Two"
+```
+
+* Hvis key ikke findes, **tilføjes den automatisk med default value** (f.eks. 0 for int, "" for string).
+
+---
+
+# 4. Iteration gennem map
+
+```cpp id="map5"
+for(auto pair : m) {
+    cout << pair.first << " -> " << pair.second << endl;
+}
+```
+
+* `pair.first` = key
+* `pair.second` = value
+
+---
+
+# 5. Find element
+
+```cpp id="map6"
+auto it = m.find(2);
+if(it != m.end()) {
+    cout << "Found: " << it->second << endl;
+} else {
+    cout << "Not found" << endl;
+}
+```
+
+---
+
+# 6. Slet element
+
+```cpp id="map7"
+m.erase(2); // sletter key = 2
+```
+
+* Kan også slette via iterator:
+
+```cpp id="map8"
+auto it = m.find(1);
+if(it != m.end()) m.erase(it);
+```
+
+---
+
+# 7. Nøglefunktioner i `map`
+
+| Funktion                  | Beskrivelse                                         |
+| ------------------------- | --------------------------------------------------- |
+| `insert(pair<key,value>)` | Tilføj element                                      |
+| `[]`                      | Tilføj / adgang til element                         |
+| `.find(key)`              | Returnerer iterator eller `.end()` hvis ikke fundet |
+| `.erase(key)`             | Slet element                                        |
+| `.size()`                 | Antal elementer                                     |
+| `.empty()`                | Tjekker om map er tom                               |
+| `.clear()`                | Sletter alle elementer                              |
+
+---
+
+# 8. Ordered vs Unordered map
+
+* **`std::map`** → sorteret efter key (røde-sorte træ, O(log n) søgning).
+* **`std::unordered_map`** → hash table, **ikke-sorteret**, hurtigere søgning (O(1) i gennemsnit).
+
+Eksempel:
+
+```cpp id="map9"
+#include <unordered_map>
+unordered_map<string,int> um;
+um["Alice"] = 25;
+um["Bob"] = 30;
+```
+
+---
+
+# 9. Praktisk eksempel
+
+```cpp id="map10"
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    map<string,int> stock;
+
+    stock["Apple"] = 50;
+    stock["Banana"] = 30;
+    stock["Orange"] = 20;
+
+    // Update stock
+    stock["Apple"] += 10;
+
+    // Iterate
+    for(auto item : stock) {
+        cout << item.first << ": " << item.second << endl;
+    }
+
+    // Find and erase
+    if(stock.find("Banana") != stock.end()) {
+        stock.erase("Banana");
+    }
+}
+```
+
+**Output:**
+
+```
+Apple: 60
+Banana: 30
+Orange: 20
+```
+
+---
+
+💡 **Hurtigt tip:**
+
+* Brug `map` når du har **unik nøgle og tilknyttet værdi**.
+* Brug `unordered_map` når du vil have **hurtig søgning uden sortering**.
+* Brug `.find()` i stedet for `[]` hvis du ikke vil oprette ny key ved fejltagelse.
+
+---
+
+
+# Vector
+
+Selvfølgelig! Lad os dykke ned i **`std::vector`** i **C++** – det er en af de mest brugte containers til dynamiske arrays.
+
+---
+
+# 1. Hvad er en `vector`?
+
+* En **vector** er en **dynamisk array**, dvs. størrelse kan ændres under kørsel.
+* Den gemmer elementer **kontinuerligt i hukommelsen**, ligesom et array, men du kan **tilføje og fjerne elementer** uden at kende størrelsen på forhånd.
+* Skal inkludere `<vector>` biblioteket:
+
+```cpp
+#include <vector>
+```
+
+---
+
+# 2. Deklaration og initialisering
+
+```cpp id="vec1"
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    vector<int> v1; // tom vector af int
+    vector<int> v2(5); // vector med 5 elementer (default 0)
+    vector<int> v3(5, 10); // vector med 5 elementer, alle 10
+    vector<int> v4 = {1, 2, 3, 4, 5}; // initializer list
+
+    return 0;
+}
+```
+
+---
+
+# 3. Tilføj og fjern elementer
+
+```cpp id="vec2"
+vector<int> nums;
+
+// Tilføj element
+nums.push_back(10);
+nums.push_back(20);
+
+// Fjern sidste element
+nums.pop_back(); // fjerner 20
+
+cout << "Sidste element: " << nums.back() << endl; // 10
+```
+
+---
+
+# 4. Adgang til elementer
+
+```cpp id="vec3"
+vector<int> nums = {5, 10, 15};
+
+// Indeks
+cout << nums[0] << endl; // 5
+cout << nums.at(1) << endl; // 10 (sikker, kaster fejl hvis out-of-bounds)
+
+// Første og sidste element
+cout << nums.front() << endl; // 5
+cout << nums.back() << endl;  // 15
+```
+
+---
+
+# 5. Størrelse og kapacitet
+
+```cpp id="vec4"
+vector<int> v = {1,2,3};
+cout << "Size: " << v.size() << endl;       // antal elementer
+cout << "Capacity: " << v.capacity() << endl; // hvor meget hukommelse er allokeret
+```
+
+* `.size()` = hvor mange elementer faktisk i vektoren
+* `.capacity()` = hvor meget plads vektoren har allokeret (kan vokse automatisk)
+
+---
+
+# 6. Iteration
+
+```cpp id="vec5"
+vector<int> v = {1,2,3,4};
+
+// Range-based for
+for(int n : v) {
+    cout << n << " ";
+}
+cout << endl;
+
+// Iterator
+for(vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
+    cout << *it << " ";
+}
+cout << endl;
+```
+
+---
+
+# 7. Slet elementer
+
+```cpp id="vec6"
+vector<int> v = {1,2,3,4,5};
+
+// Slet 3. element (index 2)
+v.erase(v.begin() + 2); // fjerner tallet 3
+
+// Slet hele vector
+v.clear();
+cout << "Size efter clear: " << v.size() << endl; // 0
+```
+
+---
+
+# 8. Indsæt elementer
+
+```cpp id="vec7"
+vector<int> v = {1,2,4,5};
+v.insert(v.begin() + 2, 3); // indsætter 3 på index 2
+```
+
+Output: `1 2 3 4 5`
+
+---
+
+# 9. Kombinerede eksempler
+
+```cpp id="vec8"
+vector<string> fruits = {"Apple","Banana"};
+fruits.push_back("Orange");
+fruits.insert(fruits.begin(), "Mango"); // foran
+
+for(auto f : fruits) cout << f << " ";
+```
+
+Output: `Mango Apple Banana Orange`
+
+---
+
+# 10. Tips og gode vaner
+
+1. Brug **range-based for loops** til nem iteration.
+2. Brug `.at(index)` når du vil have **sikker adgang**.
+3. Brug `.push_back()` og `.pop_back()` for nem tilføj/fjern i slutningen.
+4. Vektorer er **effektive til dynamiske arrays**, men hvis du skal indsætte/slette midt i store datasæt ofte, kan `std::list` være bedre.
+
+---
+
+💡 **Hurtig huskeregel:**
+
+* **Array**: fast størrelse, hurtig adgang
+* **Vector**: dynamisk størrelse, hurtig adgang, kan vokse/falde
+* **List**: dynamisk størrelse, hurtig indsæt/slet midt, langsom adgang via index
+
 
 ---
 
