@@ -1,12 +1,12 @@
 # C++
 
 ## Indhold
-[Typer](#Typer)
-[Include](#Include)
+[Typer](#Typer)  
+[Include](#Include)  
 
 
 
-## Typer
+# Typer
 
 **1. Primitive typer – int, double, char, bool**  
 **2. Derived typer – pointer, arrays, references**  
@@ -16,7 +16,7 @@ I **C++** findes der flere forskellige **typer (data types)**. De kan groft opde
 
 ---
 
-# 1. Primitive typer (Built-in types)
+## 1. Primitive typer (Built-in types)
 
 ### Heltal (integers)
 
@@ -98,7 +98,7 @@ void myFunction() {
 
 ---
 
-# 2. Afledte typer (Derived types)
+## 2. Afledte typer (Derived types)
 
 ### Pointer
 
@@ -126,7 +126,7 @@ int add(int a, int b);
 
 ---
 
-# 3. Brugerdefinerede typer (User-defined)
+## 3. Brugerdefinerede typer (User-defined)
 
 ### Struct
 
@@ -165,7 +165,7 @@ using uint = unsigned int;
 
 ---
 
-# 4. Moderne C++ typer
+## 4. Moderne C++ typer
 
 ### `auto`
 
@@ -181,7 +181,7 @@ decltype(x) y = 10;
 ```
 
 ---
-## Include
+# Include
 
 I **C++** bruger man **`#include`** til at importere funktioner, klasser og biblioteker fra standardbiblioteket eller egne filer.
 
@@ -189,7 +189,7 @@ Her er nogle af de **mest brugte includes**.
 
 ---
 
-# 1. Input og output
+## 1. Input og output
 
 ```cpp
 #include <iostream>
@@ -213,7 +213,7 @@ int main() {
 
 ---
 
-# 2. Strings
+## 2. Strings
 
 ```cpp
 #include <string>
@@ -233,7 +233,7 @@ std::string name = "Peter";
 
 ---
 
-# 3. Vektorer (dynamiske arrays)
+## 3. Vektorer (dynamiske arrays)
 
 ```cpp
 #include <vector>
@@ -253,7 +253,7 @@ std::vector<int> numbers = {1,2,3};
 
 ---
 
-# 4. Matematik
+## 4. Matematik
 
 ```cpp
 #include <cmath>
@@ -276,7 +276,7 @@ double x = sqrt(25);
 
 ---
 
-# 5. Algoritmer
+## 5. Algoritmer
 
 ```cpp
 #include <algorithm>
@@ -299,7 +299,7 @@ sort(v.begin(), v.end());
 
 ---
 
-# 6. Input/output med filer
+## 6. Input/output med filer
 
 ```cpp
 #include <fstream>
@@ -320,7 +320,7 @@ std::ofstream file("data.txt");
 
 ---
 
-# 7. Tidsfunktioner
+## 7. Tidsfunktioner
 
 ```cpp
 #include <ctime>
@@ -333,7 +333,7 @@ Bruges til:
 
 ---
 
-# 8. Containers (datastrukturer)
+## 8. Containers (datastrukturer)
 
 ### Map
 
@@ -361,7 +361,7 @@ Bruges til:
 
 ---
 
-# 9. Utility funktioner
+## 9. Utility funktioner
 
 ```cpp
 #include <utility>
@@ -373,7 +373,7 @@ Bruges til:
 
 ---
 
-# 10. C-style funktioner
+## 10. C-style funktioner
 
 ```cpp
 #include <cstdlib>
@@ -386,7 +386,7 @@ Bruges til:
 
 ---
 
-# Typisk “standard start” i mange programmer
+## Typisk “standard start” i mange programmer
 
 ```cpp
 #include <iostream>
