@@ -10,7 +10,58 @@
 [Betingelser](#Betingelser)  
 [Lister](#Lister)  
 
+# Kodeeksempel på C++
+```
+#include <iostream>
+#include <vector>
+#include <map>
+using namespace std;
 
+int main() {
+    cout << "=== Pointer-eksempel ===" << endl;
+    int x = 42;
+    int* p = &x;
+    cout << "Adresse af x: " << p << endl;
+    cout << "Værdi af x via pointer: " << *p << endl;
+
+    cout << "\n=== Array-eksempel ===" << endl;
+    int arr[5] = {1, 2, 3, 4, 5};
+    for(int i = 0; i < 5; i++) {
+        cout << "arr[" << i << "] = " << arr[i] << endl;
+    }
+
+    cout << "\n=== Vector-eksempel ===" << endl;
+    vector<int> vec = {10, 20, 30};
+    vec.push_back(40); // tilføj element
+    for(int n : vec) {
+        cout << n << " ";
+    }
+    cout << endl;
+
+    cout << "\n=== Map-eksempel ===" << endl;
+    map<string,int> ages;
+    ages["Alice"] = 25;
+    ages["Bob"] = 30;
+    ages["Charlie"] = 22;
+
+    // Iterer gennem map
+    for(auto pair : ages) {
+        cout << pair.first << " -> " << pair.second << endl;
+    }
+
+    // Find og opdater
+    if(ages.find("Bob") != ages.end()) {
+        ages["Bob"] += 1; // Bob har fødselsdag!
+    }
+
+    cout << "\nEfter opdatering:" << endl;
+    for(auto pair : ages) {
+        cout << pair.first << " -> " << pair.second << endl;
+    }
+
+    return 0;
+}
+```
 
 # Typer
 
