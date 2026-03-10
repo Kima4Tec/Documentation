@@ -1,6 +1,10 @@
 # C++
 
-## Typer
+## Indhold
+[Typer](#Typer)
+
+
+
 
 **1. Primitive typer – int, double, char, bool**  
 **2. Derived typer – pointer, arrays, references**  
@@ -182,3 +186,5 @@ decltype(x) y = 10;
 
 ## Metoder
 ### cout
+
+## Typer
