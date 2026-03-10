@@ -4,7 +4,7 @@
 [Typer](#Typer)  
 [Include](#Include)   
 [Namespace](#Namespace)  
-[Metoder](#Metoder)  
+[Funktioner](#Funktioner)  
 [Pointers](#Pointers)  
 [Loops](#Loops)  
 [Betingelser](#Betingelser)
@@ -601,8 +601,185 @@ using namespace std;
 ---
 
 
-## Metoder
-### cout
+## Funktioner
+Her er en liste over de **mest brugte funktioner i C++**, som man typisk støder på i undervisning, eksamen og små programmer. Jeg grupperer dem efter kategori for overskuelighed:
+
+---
+
+## 1. Input / Output
+
+| Funktion         | Bibliotek    | Brug                       |
+| ---------------- | ------------ | -------------------------- |
+| `std::cout`      | `<iostream>` | Output til terminal        |
+| `std::cin`       | `<iostream>` | Input fra terminal         |
+| `std::cerr`      | `<iostream>` | Output af fejlbeskeder     |
+| `std::getline()` | `<string>`   | Læse hele linjer fra input |
+
+**Eksempel:**
+
+```cpp id="exio1"
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string name;
+    cout << "Enter name: ";
+    getline(cin, name);      // læser hele linjen inkl. mellemrum
+    cout << "Hello " << name << endl;
+}
+```
+
+---
+
+## 2. Matematik (cmath)
+
+| Funktion                       | Bibliotek | Brug                       |
+| ------------------------------ | --------- | -------------------------- |
+| `sqrt()`                       | `<cmath>` | Kvadratrod                 |
+| `pow()`                        | `<cmath>` | Potens                     |
+| `abs()`                        | `<cmath>` | Absolutværdi               |
+| `sin()`, `cos()`, `tan()`      | `<cmath>` | Trigonometriske funktioner |
+| `round()`, `ceil()`, `floor()` | `<cmath>` | Afrunding                  |
+
+**Eksempel:**
+
+```cpp id="exmath"
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double x = 2.0;
+    cout << sqrt(x) << endl;   // 1.41421
+    cout << pow(x, 3) << endl; // 8
+}
+```
+
+---
+
+## 3. Strings
+
+| Funktion / operator     | Bibliotek  | Brug                         |
+| ----------------------- | ---------- | ---------------------------- |
+| `+`                     | `<string>` | Sammenkædning af strenge     |
+| `.size()` / `.length()` | `<string>` | Længde af string             |
+| `.substr()`             | `<string>` | Uddrag af string             |
+| `.find()`               | `<string>` | Find substring               |
+| `.c_str()`              | `<string>` | Konverter til C-style string |
+
+**Eksempel:**
+
+```cpp id="exstr"
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string text = "Hello, world!";
+    cout << text.substr(0,5) << endl; // "Hello"
+    cout << text.size() << endl;       // 13
+}
+```
+
+---
+
+## 4. Vektorer (Containers)
+
+| Funktion / operator | Bibliotek  | Brug                                |
+| ------------------- | ---------- | ----------------------------------- |
+| `.push_back()`      | `<vector>` | Tilføj element                      |
+| `.size()`           | `<vector>` | Antal elementer                     |
+| `.at(index)`        | `<vector>` | Adgang til element med bounds check |
+| `.begin() / .end()` | `<vector>` | Iteratorer til loop / algoritmer    |
+
+**Eksempel:**
+
+```cpp id="exvec"
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> nums = {1,2,3};
+    nums.push_back(4);
+    for(int n : nums) cout << n << " ";
+}
+```
+
+---
+
+## 5. Algoritmer (algorithm)
+
+| Funktion          | Bibliotek     | Brug               |
+| ----------------- | ------------- | ------------------ |
+| `sort()`          | `<algorithm>` | Sortere container  |
+| `find()`          | `<algorithm>` | Find element       |
+| `max()` / `min()` | `<algorithm>` | Maksimum / minimum |
+| `reverse()`       | `<algorithm>` | Vend rækkefølge    |
+
+**Eksempel:**
+
+```cpp id="exalg"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> v = {3,1,4,2};
+    sort(v.begin(), v.end());
+    for(int n : v) cout << n << " "; // 1 2 3 4
+}
+```
+
+---
+
+## 6. Filer (fstream)
+
+| Funktion / klasse      | Bibliotek   | Brug             |
+| ---------------------- | ----------- | ---------------- |
+| `ofstream`             | `<fstream>` | Skriv til fil    |
+| `ifstream`             | `<fstream>` | Læs fra fil      |
+| `.open()` / `.close()` | `<fstream>` | Åbn / luk fil    |
+| `.read()` / `.write()` | `<fstream>` | Binærfil-læsning |
+
+**Eksempel:**
+
+```cpp id="exfile"
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ofstream out("file.txt");
+    out << "Hello file!" << endl;
+    out.close();
+}
+```
+
+---
+
+## 7. Tid (chrono)
+
+| Funktion / klasse                  | Bibliotek  | Brug               |
+| ---------------------------------- | ---------- | ------------------ |
+| `std::chrono::system_clock::now()` | `<chrono>` | Hent nuværende tid |
+| `std::chrono::duration`            | `<chrono>` | Tidsvarighed       |
+| `std::this_thread::sleep_for()`    | `<thread>` | Pause program      |
+
+---
+
+💡 **Kort opsummering af de absolut mest brugte funktioner:**
+
+```
+cout, cin, getline
+push_back, size
+sort, find, max, min
+sqrt, pow, abs
+```
+
+---
 
 ## Pointers
 
