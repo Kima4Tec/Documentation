@@ -6,9 +6,6 @@
 **3. User-defined typer – struct, class, enum**  
 
 I **C++** findes der flere forskellige **typer (data types)**. De kan groft opdeles i **primitive typer**, **afledte typer** og **brugerdefinerede typer**.
-
-Her er en overskuelig liste.
-
 ---
 
 # 1. Primitive typer (Built-in types)
