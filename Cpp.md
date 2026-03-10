@@ -1,11 +1,13 @@
 # C++
 
 ## Typer
+
 **1. Primitive typer – int, double, char, bool**  
 **2. Derived typer – pointer, arrays, references**  
 **3. User-defined typer – struct, class, enum**  
 
 I **C++** findes der flere forskellige **typer (data types)**. De kan groft opdeles i **primitive typer**, **afledte typer** og **brugerdefinerede typer**.
+
 ---
 
 # 1. Primitive typer (Built-in types)
