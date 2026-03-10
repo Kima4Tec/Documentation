@@ -2,7 +2,10 @@
 
 ## Indhold
 [Typer](#Typer)  
-[Include](#Include)  
+[Include](#Include)   
+[Namespace](#Namespace)  
+[Metoder](#Metoder)  
+[Pointers](#Pointers)
 
 
 
