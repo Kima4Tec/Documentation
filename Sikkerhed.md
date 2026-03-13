@@ -5,7 +5,15 @@ Login:
  - Eksklusivt medlemskab: Hvert medlem bliver oprettet af os, men hvor de kan skifte deres password. Data skal sikres, ved brud skal det meldes til datatilsynet, og der skal være tjek på GPDR.
  - Åbent medlemskab: Alle kan melde sig til. De samme regler om data gælder.
  
+Fordele ved Woprdpress:
+- Hurtigere at lave.
+- Du får meget serveret på en nem måde med temaer, login, webbutik osv.
 
+Bagdele:
+- Ikke stort kendskab
+- Mange plugins, der kan skabve en sikkerhedsrisiko
+- Wordpress er baseret på skabeloner, der kan være sværere at ændre
+- Login, som man ikke selv har lavet, betyder også mindre kontrol over processerne.
 
 Hvis du gemmer data om medlemmer, der kan logge ind på en hjemmeside i Danmark eller EU, skal du følge reglerne i **General Data Protection Regulation (GDPR)** samt den danske **Databeskyttelsesloven**.
 
@@ -232,3 +240,4 @@ Med Simply.com + WordPress er sikkerheden normalt **helt fin**, hvis du:
 * bruger 2FA
 
 ---
+
