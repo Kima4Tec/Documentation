@@ -200,6 +200,8 @@ Hvis det bliver gjort på en **`<div>`** virker det kun, hvis du sætter tabinde
 ```
 
 
+# Media til skærmtilpasning
+### Moderne tilgang starter med mobil først og går opefter.
 ```
 @media (max-width: 600px) { ... }
 @media (min-width: 600px) { ... }
