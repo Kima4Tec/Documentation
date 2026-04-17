@@ -8,3 +8,8 @@ Man slår dette fra:
 ❌ Hyper-V bliver deaktiveret (ved boot)
 ❌ Windows Hypervisor Platform stopper med at virke
 ❌ Virtual Machine Platform stopper også
+
+Når Hyper-V er væk:
+
+✔ Android Emulator kan bruge:
+→ Android Emulator Hypervisor Driver
