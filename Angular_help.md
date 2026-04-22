@@ -124,3 +124,20 @@ export const routes: Routes = [
   { path: '**', redirectTo: 'admin/datacontrol' },
 ];
 ```
+
+## Scrolling
+
+```
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top'
+      })
+    )
+  ]
+});
+```
