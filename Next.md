@@ -111,5 +111,3 @@ this.personService.getPeople().subscribe({
 
 ---
 
-
-Vil du have den også?
