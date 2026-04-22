@@ -126,7 +126,7 @@ export const routes: Routes = [
 ```
 
 ## Scrolling
-Start altid sidne fra top og ikke hvor der er scrollet ned til. 
+Start altid siden fra top og ikke hvor der er scrollet ned til. 
 ```
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
