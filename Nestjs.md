@@ -15,4 +15,4 @@ NestJS er et progressivt, open-source Node.js-framework designet til at bygge ef
 **Økosystem:** Det har indbygget understøttelse af teknologier som TypeORM, Prisma, WebSockets og microservices.
 
 ## Dokumentation
-(https://nestjs.com/)[https://nestjs.com/]
+[https://nestjs.com/] (https://nestjs.com/)
