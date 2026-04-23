@@ -13,3 +13,5 @@ Når Hyper-V er væk:
 
 ✔ Android Emulator kan bruge:
 → Android Emulator Hypervisor Driver
+
+NB: **Slå software til under Graphic Accelerator for at kunne kunne køre emulatoren, hvis du ike har dedikeret kort til det.**
